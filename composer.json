@@ -1,0 +1,35 @@
+{
+	"name": "dennmtr/phomxplayer",
+	"type": "library",
+	"description": "phOMXPlayer - OMXPlayer wrap shell script",
+	"keywords": ["omxplayer","dbus","raspberry", "rpi"],
+	"version": "0.9.9",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dionisis Mitropoulos",
+			"email": "dennmtr@gmail.com"
+		}
+	],
+	"support": {
+		"email": "dennmtr+phomxplayer@gmail.com",
+		"homepage": "https://github.com/dennmtr/phomxplayer"
+	},
+	"require": {
+		"php": ">=7.3",
+		"ext-posix": "*"
+	},
+	"minimum-stability": "beta",
+	"autoload": {
+		"psr-4": {
+			"phOMXPlayer\\": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"phOMXPlayer\\Providers\\OMXPlayerServiceProvider"
+			]
+		}
+	}
+}
