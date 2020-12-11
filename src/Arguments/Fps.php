@@ -56,7 +56,7 @@ final class Fps extends Argument
 	public function getShellArg(): string
 	{
 
-		return '--vol ' . $this->value;
+		return '--fps ' . $this->value;
 
 	}
 

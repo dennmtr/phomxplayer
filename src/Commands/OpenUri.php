@@ -5,9 +5,7 @@ namespace phOMXPlayer\Commands;
 use phOMXPlayer\Exception;
 
 /**
- * Returns and array of all known video streams.
- * The length of the array is the number of streams.
- * Each item in the array is a string in the following format.
+ * Restart and open another URI for playing.
  *
  * @see Command
  */

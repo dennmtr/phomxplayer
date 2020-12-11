@@ -156,7 +156,7 @@ interface CommandInterface
 	 * @return Omxplayer
 	 * @throws Exception\CommandException
 	 * @api
-	 * @see Commands\setPosition
+	 * @see Commands\Position
 	 */
 	public function setPosition(float $time): OMXPlayer;
 
