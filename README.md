@@ -71,9 +71,9 @@ Reserve at least 128MB of system memory to the GPU `required`
 $player = new OMXPlayer([
   'adev' => 'hdmi',
   'blank' => true
-])
-->play('sample.mp4');
+]);
 
+$player->play('sample.mp4');
 ```
 
 #### Request
@@ -139,7 +139,7 @@ $player->map([
 ]);
 
 $player->adev->getValue();      // Returns 'hdmi' string.
-$player->getShellArgs(false)    // Returns '--adev hdmi --no-keys --with-info' string.
+$player->getShellArgs(false);    // Returns '--adev hdmi --no-keys --with-info' string.
 
 $input = true;
 
