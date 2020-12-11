@@ -1,7 +1,5 @@
 <?php
-
 return [
-
 	/*
 	|--------------------------------------------------------------------------
 	| phOMXPlayer Arguments
@@ -12,12 +10,11 @@ return [
 	| 	There is no reason to override these values on a clean and fresh installed Raspberry Pi OS.
 	|
 	*/
-
 	/**
 	 * Contains the absolute path to store session files. The path MUST be writable.
 	 * Small files in size.
-	 * Default: 		/dev/shm (shared memory)
-	 * Recommended: 	/dev/shm, /tmp
+	 * Default:        /dev/shm (shared memory)
+	 * Recommended:    /dev/shm, /tmp
 	 */
 	'session_path' => '/dev/shm',
 	/**
@@ -52,5 +49,4 @@ return [
 	 * Default: 10000 (10 sec.)
 	 */
 	//'timeout_interval' => 10000,
-
 ];

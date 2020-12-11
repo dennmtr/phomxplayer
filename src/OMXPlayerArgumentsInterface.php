@@ -1,12 +1,10 @@
 <?php
 
 namespace phOMXPlayer;
-
 /**
  * Arguments interface for OMXPlayer shell arguments.
  */
 interface OMXPlayerArgumentsInterface
-
 {
 	/**
 	 * Sets the adev option value

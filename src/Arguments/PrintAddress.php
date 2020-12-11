@@ -1,12 +1,10 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * @see Argument
  */
 final class PrintAddress extends Argument
-
 {
 	/**
 	 * @var array Default values as array.
@@ -14,6 +12,7 @@ final class PrintAddress extends Argument
 	const ACCEPTABLE_VALUES = array(
 		['type' => 'int', 'label' => 'integer']
 	);
+
 	/**
 	 * Input value validator.
 	 *
@@ -26,6 +25,7 @@ final class PrintAddress extends Argument
 		return (is_numeric($value));
 
 	}
+
 	/**
 	 * Sanitizes the input value.
 	 *
@@ -38,6 +38,7 @@ final class PrintAddress extends Argument
 		return (int)$value;
 
 	}
+
 	/**
 	 * Returns the shell argument.
 	 *

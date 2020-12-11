@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Pause the video. If the video is playing, it will be paused, if it is paused it will stay in pause (no effect).
  *
  * @see Command
  */
 final class Pause extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class Pause extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

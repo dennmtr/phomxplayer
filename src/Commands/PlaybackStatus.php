@@ -2,15 +2,12 @@
 
 namespace phOMXPlayer\Commands;
 
-use phOMXPlayer\Exception;
-
 /**
  * The current state of the player, either "Paused" or "Playing".
  *
  * @see Command
  */
 final class PlaybackStatus extends Command
-
 {
 
 	/**
@@ -29,7 +26,6 @@ final class PlaybackStatus extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}
@@ -75,7 +71,6 @@ final class PlaybackStatus extends Command
 			case preg_match("/Playing/", $this->stdout):
 				return true;
 		}
-
 		return null;
 
 	}

@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Set video render layer number (higher numbers are on top).
  *
  * @see Argument
  */
 final class Display extends Argument
-
 {
 
 	/**

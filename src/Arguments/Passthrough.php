@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Audio passthrough.
  *
  * @see Argument
  */
 final class Passthrough extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class Passthrough extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class Passthrough extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--passthrough';
 		}
-
 		return null;
 
 	}

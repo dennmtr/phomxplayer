@@ -1,19 +1,17 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Switch tv into 3d mode (e.g. SBS/TB).
  *
  * @see Argument
  */
 final class Mode3D extends Argument
-
 {
 	/**
 	 * @var string
 	 */
-	const FRAME_PACKING	= 'FP';
+	const FRAME_PACKING = 'FP';
 	/**
 	 * @var string
 	 */

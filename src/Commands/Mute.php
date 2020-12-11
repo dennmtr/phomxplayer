@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Mute the audio stream. If the volume is already muted, this does nothing.
  *
  * @see Command
  */
 final class Mute extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class Mute extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

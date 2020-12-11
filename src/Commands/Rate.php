@@ -12,7 +12,6 @@ use phOMXPlayer\Exception;
  * @see Command
  */
 final class Rate extends Command
-
 {
 
 	/**
@@ -32,13 +31,11 @@ final class Rate extends Command
 			array('string', escapeshellarg('org.mpris.MediaPlayer2.Player')),
 			array('string', escapeshellarg('Rate'))
 		);
-
 		if (!is_null($this->input)) {
 
 			$params[] = array('variant:double', $this->input);
 
 		}
-
 		return $params;
 
 	}
@@ -57,7 +54,6 @@ final class Rate extends Command
 		if (is_null($input)) {
 
 			$this->method .= '.Get';
-
 			return null;
 
 		} else {
@@ -65,11 +61,9 @@ final class Rate extends Command
 			if (static::validateInput($this->input)) {
 
 				$this->method .= '.Set';
-
 				return (float)$this->input;
 
 			}
-
 			throw new Exception\CommandException('Invalid input rate number.');
 
 		}
@@ -87,7 +81,6 @@ final class Rate extends Command
 	{
 
 		if (is_numeric($input) && $input > 0 && $input <= 4) return true;
-
 		return false;
 
 	}
@@ -101,7 +94,6 @@ final class Rate extends Command
 	{
 
 		preg_match_all('/double\s(.+)/', $this->stdout, $output_array);
-
 		if (isset($output_array[1][0])) {
 
 			if (is_numeric($output_array[1][0])) {
@@ -111,7 +103,6 @@ final class Rate extends Command
 			}
 
 		}
-
 		return null;
 
 	}

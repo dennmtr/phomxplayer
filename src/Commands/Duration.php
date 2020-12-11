@@ -2,15 +2,12 @@
 
 namespace phOMXPlayer\Commands;
 
-use phOMXPlayer\Exception;
-
 /**
  * Returns the total length of the playing media.
  *
  * @see Command
  */
 final class Duration extends Command
-
 {
 	/**
 	 * @var string Contains the required DBusClient method.
@@ -28,7 +25,6 @@ final class Duration extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}
@@ -69,11 +65,9 @@ final class Duration extends Command
 	{
 
 		preg_match_all('/int64\s(\d+)/', $this->stdout, $output_array);
-
 		if (isset($output_array[1][0])) {
 
 			$duration_in_ms = (float)($output_array[1][0]);
-
 			if ($duration_in_ms >= 0) {
 
 				return $duration_in_ms;
@@ -81,7 +75,6 @@ final class Duration extends Command
 			}
 
 		}
-
 		return null;
 
 	}

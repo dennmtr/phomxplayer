@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Force no deinterlacing
  *
  * @see Argument
  */
 final class NoDeinterlace extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class NoDeinterlace extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class NoDeinterlace extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--nodeinterlace';
 		}
-
 		return null;
 
 	}

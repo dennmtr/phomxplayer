@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Options passed to libavformat, e.g. 'probesize:250000,...'.
  *
  * @see Argument
  */
 final class Lavfdopts extends Argument
-
 {
 
 	/**

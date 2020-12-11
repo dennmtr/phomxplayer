@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * No semitransparent boxes behind subtitles.
  *
  * @see Argument
  */
 final class NoGhostBox extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class NoGhostBox extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class NoGhostBox extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--no-ghost-box';
 		}
-
 		return null;
 
 	}

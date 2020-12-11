@@ -1,12 +1,10 @@
 <?php
 
 namespace phOMXPlayer;
-
 /**
  * Command interface for OMXPlayer Commands.
  */
 interface CommandInterface
-
 {
 	/**
 	 * Whether or not the player can be controlled.
@@ -342,10 +340,10 @@ interface CommandInterface
 	/**
 	 * Set the volume and return the current volume.
 	 *
-	 * @param float $volume 	As defined by the MPRIS specifications, this value should be greater than or equal to 0. 1 is the normal volume.
-	 *                        	Everything below is quieter than normal, everything above is louder.
-	 *                        	Greater than or equal to 0. 1 is the normal volume.
-	 * @return float          	Current volume
+	 * @param float $volume As defined by the MPRIS specifications, this value should be greater than or equal to 0. 1 is the normal volume.
+	 *                            Everything below is quieter than normal, everything above is louder.
+	 *                            Greater than or equal to 0. 1 is the normal volume.
+	 * @return float            Current volume
 	 * @throws Exception\CommandException
 	 * @api
 	 * @see Commands\Volume

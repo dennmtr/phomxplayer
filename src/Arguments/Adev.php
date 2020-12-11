@@ -1,19 +1,17 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Audio out device.
  *
  * @see Argument
  */
 final class Adev extends Argument
-
 {
 	/**
 	 * @var string HDMI audio output.
 	 */
-	const HDMI 	= 'hdmi';
+	const HDMI = 'hdmi';
 	/**
 	 * @var string Jack audio output.
 	 */
@@ -21,11 +19,11 @@ final class Adev extends Argument
 	/**
 	 * @var string HDMI & Jack audio output.
 	 */
-	const BOTH 	= 'both';
+	const BOTH = 'both';
 	/**
 	 * @var string Alsa:device specific.
 	 */
-	const ALSA 	= 'alsa';
+	const ALSA = 'alsa';
 
 	/**
 	 * @var mixed Default value.

@@ -13,11 +13,11 @@ abstract class Command extends DBusClient
 {
 
 	/**
-	 * @var mixed	Contains the input value.
+	 * @var mixed    Contains the input value.
 	 */
 	protected $input;
 	/**
-	 * @var string 	Contains the stdout buffer.
+	 * @var string    Contains the stdout buffer.
 	 */
 	protected $stdout;
 
@@ -53,11 +53,8 @@ abstract class Command extends DBusClient
 
 			throw new Exception\CommandException('Method name cannot be empty.');
 		}
-
 		parent::__construct();
-
 		$this->input = $this->sanitizeInput($input);
-
 		$this->stdout = $this->call($this->method, $this->getParams());
 
 	}
@@ -114,7 +111,6 @@ abstract class Command extends DBusClient
 
 	/**
 	 * Abstract Method
-
 	 * @return mixed
 	 * @see getFormattedOutput
 	 */
@@ -129,10 +125,8 @@ abstract class Command extends DBusClient
 	{
 
 		preg_match_all('/(\d+?)(?=:):(.*?)(?=:):(.*?)(?=:):(.*?)(?=:):(.*?)(?=\s{3})/', $this->stdout, $output_array);
-
 		$outer = [];
 		$inner = [];
-
 		for ($i = 0; $i < count($output_array[0]); $i++) {
 			unset($inner);
 			$inner = null;
@@ -164,13 +158,11 @@ abstract class Command extends DBusClient
 							}
 							break;
 					}
-
 					$inner[] = $value;
 				}
 			}
 			$outer[] = $inner;
 		}
-
 		return $outer;
 
 	}

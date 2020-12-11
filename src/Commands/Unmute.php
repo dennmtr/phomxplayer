@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Unmute the audio stream. If the stream is already unmuted, this does nothing.
  *
  * @see Command
  */
 final class Unmute extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class Unmute extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

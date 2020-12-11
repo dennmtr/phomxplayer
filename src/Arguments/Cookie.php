@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Send specified cookie as part of HTTP requests.
  *
  * @see Argument
  */
 final class Cookie extends Argument
-
 {
 
 	/**

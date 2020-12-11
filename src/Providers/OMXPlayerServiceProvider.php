@@ -36,11 +36,8 @@ class OMXPlayerServiceProvider extends BaseServiceProvider
 	public function boot()
 	{
 		$this->publishes([
-
 			// Config
-
 			$this->configPath() => config_path('phomxplayer.php'),
-
 		], 'phOMXPlayer');
 	}
 

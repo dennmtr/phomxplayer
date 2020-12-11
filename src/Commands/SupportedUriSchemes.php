@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Playable URI formats.
  *
  * @see Command
  */
 final class SupportedUriSchemes extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class SupportedUriSchemes extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

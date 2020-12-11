@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Set the video background color to black.
  *
  * @see Argument
  */
 final class Blank extends Argument
-
 {
 	/**
 	 * @var bool Set the video background color to black.
@@ -53,12 +51,10 @@ final class Blank extends Argument
 				break;
 
 		}
-
 		switch (true) {
 			case in_array($value, static::ACCEPTABLE_VALUES, true):
 				return true;
 		}
-
 		return false;
 
 	}
@@ -73,7 +69,6 @@ final class Blank extends Argument
 	{
 
 		if (is_numeric($value)) return boolval($value);
-
 		return (string)$value;
 
 	}
@@ -89,7 +84,6 @@ final class Blank extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--blank';
 		}
-
 		return null;
 	}
 

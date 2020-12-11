@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Set output speaker layout (e.g. 5.1).
  *
  * @see Argument
  */
 final class Layout extends Argument
-
 {
 	/**
 	 * @var string

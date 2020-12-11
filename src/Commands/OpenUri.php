@@ -10,7 +10,6 @@ use phOMXPlayer\Exception;
  * @see Command
  */
 final class OpenUri extends Command
-
 {
 	/**
 	 * @var string Contains the required DBusClient method.
@@ -28,7 +27,6 @@ final class OpenUri extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}
@@ -59,7 +57,6 @@ final class OpenUri extends Command
 		if (is_file($input)) {
 			return $this->input;
 		}
-
 		throw new Exception\CommandException('File not found.');
 
 	}

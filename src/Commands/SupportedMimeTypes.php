@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Supported mime types. Note: currently not implemented.
  *
  * @see Command
  */
 final class SupportedMimeTypes extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class SupportedMimeTypes extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Enable/disable advanced deinterlace for HD videos (default enabled).
  *
  * @see Argument
  */
 final class Advanced extends Argument
-
 {
 	/**
 	 * @var int
@@ -52,7 +50,6 @@ final class Advanced extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -79,9 +76,8 @@ final class Advanced extends Argument
 	{
 
 		if ($this->value == self::DISABLED) {
-			return '--advanced='.$this->value;
+			return '--advanced=' . $this->value;
 		}
-
 		return null;
 
 	}

@@ -13,7 +13,6 @@ use phOMXPlayer\Exception;
  * @see Command
  */
 final class Position extends Command
-
 {
 
 	/**
@@ -24,7 +23,7 @@ final class Position extends Command
 	/**
 	 * If input value is null will return the current position
 	 * If input is a valid input time will seek to the specific location
-	 * 	 *
+	 *     *
 	 * @return array
 	 */
 	protected function getParams(): array
@@ -62,7 +61,6 @@ final class Position extends Command
 		if (is_null($input)) {
 
 			$this->method .= 'freedesktop.DBus.Properties.Get';
-
 			return null;
 
 		} else {
@@ -70,11 +68,9 @@ final class Position extends Command
 			if (static::validateInput($input)) {
 
 				$this->method .= 'mpris.MediaPlayer2.Player.SetPosition';
-
 				return (float)$input;
 
 			}
-
 			throw new Exception\CommandException('Invalid input position number.');
 
 		}
@@ -92,7 +88,6 @@ final class Position extends Command
 	{
 
 		if (is_numeric($input) && $input >= 0) return true;
-
 		return false;
 
 	}
@@ -112,7 +107,6 @@ final class Position extends Command
 		} else {
 
 			preg_match_all('/int64\s(\d+)/', $this->stdout, $output_array);
-
 			if (isset($output_array[1][0])) {
 
 				if (is_numeric($output_array[1][0])) {
@@ -124,7 +118,6 @@ final class Position extends Command
 			}
 
 		}
-
 		return null;
 
 	}
@@ -149,5 +142,4 @@ final class Position extends Command
 //		return null;
 //
 //	}
-
 }

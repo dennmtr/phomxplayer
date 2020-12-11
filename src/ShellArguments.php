@@ -8,7 +8,6 @@ use phOMXPlayer\Arguments\Argument;
  * Initializes the proper stack of shell arguments before execution.
  **/
 class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusArgumentsInterface
-
 {
 	/**
 	 * @var array Contains the array of current arguments.
@@ -22,45 +21,45 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	 *
 	 * @param array|null $arguments contains an array of named keys and mixed values
 	 *
-	 * 		$arguments = [
-	 * 			'adev' => 'hdmi',
-	 * 			'blank' => true,
-	 * 			'no-keys' => true
-	 * 		];
+	 *      $arguments = [
+	 *          'adev' => 'hdmi',
+	 *          'blank' => true,
+	 *          'no-keys' => true
+	 *      ];
 	 *
 	 *      $player = new OMXPlayer($arguments);
 	 *
-	 *      $player->adev; 					// Returns the Arguments\Adev instance via magic method if exists or null.
-	 *      $player->adev->getShellArg(); 	// Returns '--adev hdmi' string, later passed in omxplayer execution.
-	 *      $player->adev->getValue(); 		// Returns 'hdmi' string.
-	 *      $player->adev = 'local'; 		// Sets a new adev argument instance with its variant value via magic method.
-	 *      $player->adev->getValue(); 		// Returns 'local' string.
+	 *      $player->adev;                    // Returns the Arguments\Adev instance via magic method if exists or null.
+	 *      $player->adev->getShellArg();    // Returns '--adev hdmi' string, later passed in omxplayer execution.
+	 *      $player->adev->getValue();        // Returns 'hdmi' string.
+	 *      $player->adev = 'local';        // Sets a new adev argument instance with its variant value via magic method.
+	 *      $player->adev->getValue();        // Returns 'local' string.
 	 *
 	 *      $player->map([
-	 *         	'adev' => 'both',
-	 *			'with-info' => false
+	 *            'adev' => 'both',
+	 *            'with-info' => false
 	 *      ]);
 	 *
-	 *		$player->adev->getValue(); 		// Returns 'both' string.
-	 *		$player->with_info->getValue(); // Returns false bool.
-	 *		$player->blank->getValue(); 	// Returns true bool.
+	 *      $player->adev->getValue();        // Returns 'both' string.
+	 *      $player->with_info->getValue(); // Returns false bool.
+	 *      $player->blank->getValue();    // Returns true bool.
 	 *
-	 *		$player->map([
-	 *			'adev' => new Arguments\Adev(Arguments\Adev::HDMI),
-	 *			'blank' => new Arguments\Blank(false),
-	 *			'with-info' => true,
-	 *		]);
+	 *      $player->map([
+	 *          'adev' => new Arguments\Adev(Arguments\Adev::HDMI),
+	 *          'blank' => new Arguments\Blank(false),
+	 *          'with-info' => true,
+	 *      ]);
 	 *
-	 *		$player->adev->getValue(); 		// Returns 'hdmi' string.
-	 *		$player->getShellArgs(false) 	// Returns '--adev hdmi --no-keys --with-info' string.
+	 *      $player->adev->getValue();        // Returns 'hdmi' string.
+	 *      $player->getShellArgs(false);    // Returns '--adev hdmi --no-keys --with-info' string.
 	 *
-	 *		$input = true;
+	 *      $input = true;
 	 *
-	 *		if (Arguments\Adev::isValid($input)) {
-	 *			$player->adev = $input; 	// It will never reach here because boolean true is not a valid Adev value.
-	 *		}
+	 *      if (Arguments\Adev::isValid($input)) {
+	 *          $player->adev = $input;    // It will never reach here because boolean true is not a valid Adev value.
+	 *      }
 	 *
-	 *		$player->adev = $input; 		// It will throw an ArgumentException because boolean true is not a valid Adev value.
+	 *      $player->adev = $input;        // It will throw an ArgumentException because boolean true is not a valid Adev value.
 	 *
 	 * @param array|null $defaults Contains the default arguments of sub-class.
 	 *
@@ -71,13 +70,10 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		parent::__construct();
-
 		$this->arguments = [];
-
 		if (!is_null($arguments)) {
 
 			$arguments = array_merge($defaults, $arguments);
-
 			$this->map($arguments);
 
 		}
@@ -99,7 +95,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 			if (is_string($key) && !empty($key)) {
 
 				$key = str_replace('-', '_', $key);
-
 				if ($argument instanceof Argument) {
 
 					$this->arguments[$key] = $argument;
@@ -113,7 +108,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 			}
 
 		}
-
 		return $this;
 
 	}
@@ -137,17 +131,15 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	 * Magic method
 	 * Updates the arguments collection with a new argument instance with its input value.
 	 *
-	 * @param string $argument 	Contains the named key.
-	 * @param mixed $value 		Contains the value.
+	 * @param string $argument Contains the named key.
+	 * @param mixed $value Contains the value.
 	 *
 	 * @return ShellArguments
 	 */
 	public function __set(string $argument, $value): self
-
 	{
 
 		$this->$argument($value);
-
 		return $this;
 
 	}
@@ -155,8 +147,8 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	/**
 	 * Returns all the arguments as string.
 	 *
-	 * @param bool $leading_space 	Prepends a leading space in string. default TRUE.
-	 * @param bool $as_array 		If TRUE returns the arguments as array.
+	 * @param bool $leading_space Prepends a leading space in string. default TRUE.
+	 * @param bool $as_array If TRUE returns the arguments as array.
 	 *
 	 * @return string|array
 	 */
@@ -168,10 +160,8 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 			return trim($argument->getShellArg());
 
 		}, $this->arguments);
-
 		$arguments = array_filter($arguments);
-
-		return (!$as_array ? ($leading_space ? ' ' : '').implode(' ', $arguments) : $arguments);
+		return (!$as_array ? ($leading_space ? ' ' : '') . implode(' ', $arguments) : $arguments);
 
 	}
 
@@ -189,7 +179,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['adev'] = new Arguments\Adev($value);
-
 		return $this;
 
 	}
@@ -208,7 +197,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['no_keys'] = new Arguments\NoKeys($value);
-
 		return $this;
 
 	}
@@ -226,7 +214,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['blank'] = new Arguments\Blank($value);
-
 		return $this;
 
 	}
@@ -245,7 +232,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['with_info'] = new Arguments\WithInfo($value);
-
 		return $this;
 
 	}
@@ -264,7 +250,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['pos'] = new Arguments\Pos($value);
-
 		return $this;
 
 	}
@@ -282,7 +267,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['fps'] = new Arguments\Fps($value);
-
 		return $this;
 
 	}
@@ -301,7 +285,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['aidx'] = new Arguments\Aidx($value);
-
 		return $this;
 
 	}
@@ -319,7 +302,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['sid'] = new Arguments\Sid($value);
-
 		return $this;
 
 	}
@@ -335,7 +317,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['print_address'] = new Arguments\PrintAddress($value);
-
 		return $this;
 
 	}
@@ -351,7 +332,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['print_pid'] = new Arguments\PrintPid($value);
-
 		return $this;
 
 	}
@@ -367,7 +347,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['session'] = new Arguments\Session($value);
-
 		return $this;
 
 	}
@@ -383,7 +362,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['fork'] = new Arguments\Fork($value);
-
 		return $this;
 
 	}
@@ -399,7 +377,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['passthrough'] = new Arguments\Passthrough($value);
-
 		return $this;
 
 	}
@@ -415,7 +392,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['deinterlace'] = new Arguments\Deinterlace($value);
-
 		return $this;
 
 	}
@@ -431,7 +407,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['nodeinterlace'] = new Arguments\NoDeinterlace($value);
-
 		return $this;
 
 	}
@@ -449,7 +424,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['nativedeinterlace'] = new Arguments\NativeDeinterlace($value);
-
 		return $this;
 
 	}
@@ -467,7 +441,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['hw'] = new Arguments\Hw($value);
-
 		return $this;
 
 	}
@@ -485,7 +458,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['allow_mvc'] = new Arguments\AllowMvc($value);
-
 		return $this;
 
 	}
@@ -503,7 +475,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['hdmiclocksync'] = new Arguments\HdmiClockSync($value);
-
 		return $this;
 
 	}
@@ -521,7 +492,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['nohdmiclocksync'] = new Arguments\NoHdmiClockSync($value);
-
 		return $this;
 
 	}
@@ -539,7 +509,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['refresh'] = new Arguments\Refresh($value);
-
 		return $this;
 
 	}
@@ -557,7 +526,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['loop'] = new Arguments\Loop($value);
-
 		return $this;
 
 	}
@@ -575,7 +543,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['no_boost_on_downmix'] = new Arguments\NoBoostOnDownmix($value);
-
 		return $this;
 
 	}
@@ -593,7 +560,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['no_osd'] = new Arguments\NoOsd($value);
-
 		return $this;
 
 	}
@@ -611,7 +577,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['no_ghost_box'] = new Arguments\NoGhostBox($value);
-
 		return $this;
 
 	}
@@ -629,7 +594,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['live'] = new Arguments\Live($value);
-
 		return $this;
 
 	}
@@ -647,7 +611,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['advanced'] = new Arguments\Advanced($value);
-
 		return $this;
 
 	}
@@ -665,7 +628,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['mode3d'] = new Arguments\Mode3D($value);
-
 		return $this;
 
 	}
@@ -683,7 +645,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['amp'] = new Arguments\Amp($value);
-
 		return $this;
 
 	}
@@ -701,7 +662,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['vol'] = new Arguments\Vol($value);
-
 		return $this;
 
 	}
@@ -719,7 +679,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['subtitles'] = new Arguments\Subtitles($value);
-
 		return $this;
 
 	}
@@ -737,7 +696,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['font'] = new Arguments\Font($value);
-
 		return $this;
 
 	}
@@ -755,7 +713,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['font_size'] = new Arguments\FontSize($value);
-
 		return $this;
 
 	}
@@ -773,7 +730,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['align'] = new Arguments\Align($value);
-
 		return $this;
 
 	}
@@ -791,7 +747,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['lines'] = new Arguments\Lines($value);
-
 		return $this;
 
 	}
@@ -809,7 +764,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['aspect_mode'] = new Arguments\AspectMode($value);
-
 		return $this;
 
 	}
@@ -827,7 +781,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['threshold'] = new Arguments\Threshold($value);
-
 		return $this;
 
 	}
@@ -845,7 +798,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['timeout'] = new Arguments\Timeout($value);
-
 		return $this;
 
 	}
@@ -863,7 +815,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['orientation'] = new Arguments\Orientation($value);
-
 		return $this;
 
 	}
@@ -881,7 +832,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['layout'] = new Arguments\Layout($value);
-
 		return $this;
 
 	}
@@ -899,7 +849,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['layer'] = new Arguments\Layer($value);
-
 		return $this;
 
 	}
@@ -917,7 +866,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['alpha'] = new Arguments\Alpha($value);
-
 		return $this;
 
 	}
@@ -935,7 +883,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['display'] = new Arguments\Display($value);
-
 		return $this;
 
 	}
@@ -953,7 +900,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['cookie'] = new Arguments\Cookie($value);
-
 		return $this;
 
 	}
@@ -971,7 +917,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['user_agent'] = new Arguments\UserAgent($value);
-
 		return $this;
 
 	}
@@ -989,7 +934,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['lavfdopts'] = new Arguments\Lavfdopts($value);
-
 		return $this;
 
 	}
@@ -1007,7 +951,6 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['avdict'] = new Arguments\Avdict($value);
-
 		return $this;
 
 	}
@@ -1025,11 +968,9 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	{
 
 		$this->arguments['italicfont'] = new Arguments\ItalicFont($value);
-
 		return $this;
 
 	}
-
 
 
 }

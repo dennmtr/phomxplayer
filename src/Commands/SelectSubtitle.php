@@ -10,7 +10,6 @@ use phOMXPlayer\Exception;
  * @see Command
  */
 final class SelectSubtitle extends Command
-
 {
 
 	/**
@@ -48,7 +47,6 @@ final class SelectSubtitle extends Command
 			return (int)$this->input;
 
 		}
-
 		throw new Exception\CommandException('Invalid index number.');
 
 	}
@@ -64,7 +62,6 @@ final class SelectSubtitle extends Command
 	{
 
 		if (is_numeric($input) && $input >= 0) return true;
-
 		return false;
 
 	}

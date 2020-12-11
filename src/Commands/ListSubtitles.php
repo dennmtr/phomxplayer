@@ -1,7 +1,6 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Returns a array of all known subtitles.
  * The length of the array is the number of subtitles.
@@ -9,7 +8,6 @@ namespace phOMXPlayer\Commands;
  * @see Command
  */
 final class ListSubtitles extends Command
-
 {
 
 	/**
@@ -28,7 +26,6 @@ final class ListSubtitles extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

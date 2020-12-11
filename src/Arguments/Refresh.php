@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Adjust framerate/resolution to video.
  *
  * @see Argument
  */
 final class Refresh extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class Refresh extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class Refresh extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--refresh';
 		}
-
 		return null;
 
 	}

@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Skip to the previous chapter.
  *
  * @see Command
  */
 final class Previous extends Command
-
 {
 	/**
 	 * @var string Contains the required DBusClient method.
@@ -26,7 +24,6 @@ final class Previous extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

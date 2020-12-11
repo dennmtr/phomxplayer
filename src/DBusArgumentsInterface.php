@@ -1,12 +1,10 @@
 <?php
 
 namespace phOMXPlayer;
-
 /**
  * Arguments interface for OMXPlayer shell arguments.
  */
 interface DBusArgumentsInterface
-
 {
 	/**
 	 * @param mixed $value Contains the input value.
@@ -15,7 +13,7 @@ interface DBusArgumentsInterface
 	 * @throws Exception\ArgumentException
 	 * @see Arguments\PrintAddress
 	 */
-	public function print_address($value) : ShellArguments;
+	public function print_address($value): ShellArguments;
 
 	/**
 	 * @param mixed $value Contains the input value.
@@ -24,7 +22,7 @@ interface DBusArgumentsInterface
 	 * @throws Exception\ArgumentException
 	 * @see Arguments\PrintPid
 	 */
-	public function print_pid($value) : ShellArguments;
+	public function print_pid($value): ShellArguments;
 
 	/**
 	 * @param mixed $value Contains the input value.
@@ -33,7 +31,7 @@ interface DBusArgumentsInterface
 	 * @throws Exception\ArgumentException
 	 * @see Arguments\Session
 	 */
-	public function session($value) : ShellArguments;
+	public function session($value): ShellArguments;
 
 	/**
 	 * @param mixed $value Contains the input value.
@@ -42,6 +40,6 @@ interface DBusArgumentsInterface
 	 * @throws Exception\ArgumentException
 	 * @see Arguments\Fork
 	 */
-	public function fork($value) : ShellArguments;
+	public function fork($value): ShellArguments;
 
 }

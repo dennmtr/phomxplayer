@@ -1,23 +1,19 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Set fps of video where timestamps are not present.
  *
  * @see Argument
  */
 final class Fps extends Argument
-
 {
 
 	/**
 	 * @var array Default values as array.
 	 */
 	const ACCEPTABLE_VALUES = array(
-
 		[' max' => 120, 'min' => 16, 'type' => 'float', 'label' => '>=16, <=120']
-
 	);
 
 	/**
@@ -30,7 +26,6 @@ final class Fps extends Argument
 	{
 
 		$value = self::sanitizeDecVal($value);
-
 		return !empty($value) && $value >= 16 && $value <= 120;
 
 	}

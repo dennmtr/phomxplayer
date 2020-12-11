@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Default: /usr/share/fonts/truetype/freefont/FreeSans.ttf.
  *
  * @see Argument
  */
 final class Font extends Argument
-
 {
 
 	/**

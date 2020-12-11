@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Show subtitle with index.
  *
  * @see Argument
  */
 final class Sid extends Argument
-
 {
 
 	/**

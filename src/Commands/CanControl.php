@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Whether or not the player can be controlled.
  *
  * @see Command
  */
 final class CanControl extends Command
-
 {
 	/**
 	 * @var string Contains the required DBusClient method.
@@ -26,7 +24,6 @@ final class CanControl extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

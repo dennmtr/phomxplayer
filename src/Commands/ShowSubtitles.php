@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Turns on subtitles.
  *
  * @see Command
  */
 final class ShowSubtitles extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class ShowSubtitles extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Send specified User-Agent as part of HTTP requests.
  *
  * @see Argument
  */
 final class UserAgent extends Argument
-
 {
 
 	/**

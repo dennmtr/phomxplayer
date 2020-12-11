@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Turns off subtitles.
  *
  * @see Command
  */
 final class HideSubtitles extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class HideSubtitles extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

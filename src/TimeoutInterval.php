@@ -1,7 +1,6 @@
 <?php
 
 namespace phOMXPlayer;
-
 /**
  * Timeout interval tool to prevent infinite loops on shell processes.
  */
@@ -25,7 +24,6 @@ class TimeoutInterval
 	{
 
 		$this->interval = $time_in_milliseconds ?? Config::getTimeOutInterval();
-
 		$this->start_time = round(microtime(true) * 1000);
 
 	}
@@ -35,7 +33,7 @@ class TimeoutInterval
 	 *
 	 * @return bool
 	 */
-	public function expired() : bool
+	public function expired(): bool
 	{
 
 		return round(microtime(true) * 1000) - $this->start_time > $this->interval;

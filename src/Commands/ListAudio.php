@@ -1,7 +1,6 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Returns and array of all known audio streams.
  * The length of the array is the number of streams.
@@ -9,7 +8,6 @@ namespace phOMXPlayer\Commands;
  * @see Command
  */
 final class ListAudio extends Command
-
 {
 
 	/**
@@ -28,7 +26,6 @@ final class ListAudio extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

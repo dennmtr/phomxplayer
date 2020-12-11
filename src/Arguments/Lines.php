@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Number of lines in the subtitle buffer (default: 3).
  *
  * @see Argument
  */
 final class Lines extends Argument
-
 {
 	/**
 	 * @var array Default values as array.

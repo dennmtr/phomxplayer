@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Toggles the play state. If the video is playing, it will be paused, if it is paused it will start playing.
  *
  * @see Command
  */
 final class Toggle extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class Toggle extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

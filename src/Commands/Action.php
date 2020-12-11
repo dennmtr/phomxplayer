@@ -10,7 +10,6 @@ use phOMXPlayer\Exception;
  * @see Command
  */
 final class Action extends Command
-
 {
 
 	/*
@@ -138,7 +137,6 @@ final class Action extends Command
 		if (static::validateInput($input)) {
 			return (int)$input;
 		}
-
 		throw new Exception\CommandException('Invalid action key.');
 
 	}
@@ -154,7 +152,6 @@ final class Action extends Command
 	{
 
 		if (is_numeric($input) && $input >= 1 && $input <= 38) return true;
-
 		return false;
 
 	}

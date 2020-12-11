@@ -1,23 +1,19 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Set initial amplification in millibels (default 0).
  *
  * @see Argument
  */
 final class Amp extends Argument
-
 {
 
 	/**
 	 * @var array Default values as array.
 	 */
 	const ACCEPTABLE_VALUES = array(
-
 		[' max' => 1, 'min' => 0, 'type' => 'float', 'label' => '>=0, <=1']
-
 	);
 
 	/**
@@ -30,7 +26,6 @@ final class Amp extends Argument
 	{
 
 		$value = self::sanitizeValue($value);
-
 		return !empty($value) && $value >= 0 && $value <= 1;
 
 	}
@@ -68,7 +63,6 @@ final class Amp extends Argument
 	{
 
 		$value = self::sanitizeDecVal($value);
-
 		return floor(2000 * (log10($value)));
 
 	}

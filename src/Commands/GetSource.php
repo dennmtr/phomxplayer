@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * The current file or stream that is being played.
  *
  * @see Command
  */
 final class GetSource extends Command
-
 {
 	/**
 	 * @var string Contains the required DBusClient method.
@@ -26,7 +24,6 @@ final class GetSource extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

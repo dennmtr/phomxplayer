@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Whether or not the player can play.
  *
  * @see Command
  */
 final class CanPause extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class CanPause extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

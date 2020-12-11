@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Start position (hh:mm:ss).
  *
  * @see Argument
  */
 final class Pos extends Argument
-
 {
 	/**
 	 * @var array Regex time pattern.
@@ -36,7 +34,6 @@ final class Pos extends Argument
 			case preg_match('/' . self::REGEX_PATTERN['pattern'] . '/', $value):
 				return true;
 		}
-
 		return false;
 
 	}
@@ -51,13 +48,11 @@ final class Pos extends Argument
 	{
 
 		$position = $value;
-
 		if (is_numeric($position)) {
 
 			return self::formatTime($position);
 
 		}
-
 		return $position;
 
 	}
@@ -72,13 +67,10 @@ final class Pos extends Argument
 	{
 		$seconds = $ms / 1000000;
 		$hours = 0;
-
 		if ($seconds > 3600) {
 			$hours = floor($seconds / 3600);
 		}
 		$seconds = $seconds % 3600;
-
-
 		return str_pad($hours, 2, '0', STR_PAD_LEFT)
 			. gmdate(':i:s', $seconds);
 	}
@@ -94,7 +86,6 @@ final class Pos extends Argument
 		if ($this->value !== "00:00:00") {
 			return '--pos ' . $this->value;
 		}
-
 		return null;
 
 	}

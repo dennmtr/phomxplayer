@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Whether or not the play can skip to the next track.
  *
  * @see Command
  */
 final class CanGoNext extends Command
-
 {
 	/**
 	 * @var string Contains the required DBusClient method.
@@ -26,7 +24,6 @@ final class CanGoNext extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

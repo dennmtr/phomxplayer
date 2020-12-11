@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Letterbox, fill, stretch. Default: stretch if win is specified, letterbox otherwise.
  *
  * @see Argument
  */
 final class AspectMode extends Argument
-
 {
 	/**
 	 * @var string

@@ -11,14 +11,14 @@ use phOMXPlayer\Exception;
  * Initiates a DBus session, proper configured for an OMXPlayer shell instance,
  * controlled via dbus-send commands.
  *
- * @version		0.9.9 beta
+ * @version         0.9.9 beta
  *
- * @author		Dionisis Mitropoulos <dennmtr@gmail.com>
+ * @author          Dionisis Mitropoulos <dennmtr@gmail.com>
  *
- * @copyright	Copyright (c) 2020-2021, Dionisis Mitropoulos
+ * @copyright       Copyright (c) 2020-2021, Dionisis Mitropoulos
  *
- * @link		https://github.com/dennmtr/phomxplayer
- * @link		https://github.com/popcornmix/omxplayer Official OMXPlayer documentation.
+ * @link            https://github.com/dennmtr/phomxplayer
+ * @link            https://github.com/popcornmix/omxplayer Official OMXPlayer documentation.
  *
  * Attention!
  *
@@ -26,7 +26,6 @@ use phOMXPlayer\Exception;
  * OMXPlayer requires a user member of video group.
  **/
 final class OMXPlayer extends ShellArguments implements CommandInterface
-
 {
 	/**
 	 * @var DBus Contains the active DBus instance.
@@ -44,17 +43,17 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	 *        'blank' => true
 	 *     ]);
 	 *
-	 * @param array|null $shell_arguments	Contains OMXPlayer configuration options
+	 * @param array|null $shell_arguments Contains OMXPlayer configuration options
 	 *
 	 *  If skipped or if array is empty it will pass the default configuration options.
 	 *  A null value passes no options.
 	 *
-	 * @param DBusClient|null $dbus			Contains an optional active DBusClient instance.
+	 * @param DBusClient|null $dbus Contains an optional active DBusClient instance.
 	 *
 	 * @throws Exception\ShellException
-	 * @see OMXPlayerArgumentsInterface		For the available shell arguments.
-	 * @see CommandInterface				For the available commands.
-	 * @see Config							For the list of default named keys and values.
+	 * @see OMXPlayerArgumentsInterface        For the available shell arguments.
+	 * @see CommandInterface                For the available commands.
+	 * @see Config                            For the list of default named keys and values.
 	 */
 	public function __construct(?array $shell_arguments = [], ?DBusClient $dbus = null)
 	{
@@ -62,9 +61,7 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 		if (!$this->command_exists(Config::getOMXPlayerPath())) {
 			throw new Exception\ShellException('omxplayer.bin not found.');
 		}
-
 		parent::__construct($shell_arguments, Config::getDefaultPlayerArguments());
-
 		$this->dbus = (!empty($dbus) ? $dbus : new DBusClient());
 
 	}
@@ -81,27 +78,19 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$this->kill();
-
 		$this->cleanStdOut();
-
 		$this->setEnv('LD_LIBRARY_PATH', '/opt/vc/lib');
 		$this->setEnv('DBUS_SESSION_BUS_ADDRESS', $this->dbus->getAddress());
 		$this->setEnv('DBUS_SESSION_BUS_PID', $this->dbus->getPid());
-
-		$pid = (int)shell_exec('(nohup stdbuf -o0 ' . Config::getOMXPlayerPath().$this->getShellArgs() . ' ' . escapeshellarg($uri) . ' >>' . $this->getStdOutPath() . ' 2>&1) >/dev/null 2>&1 & echo $!');
-
+		$pid = (int)shell_exec('(nohup stdbuf -o0 ' . Config::getOMXPlayerPath() . $this->getShellArgs() . ' ' . escapeshellarg($uri) . ' >>' . $this->getStdOutPath() . ' 2>&1) >/dev/null 2>&1 & echo $!');
 		if (!empty($pid)) {
 
 			$this->init($pid);
-
 			$timeout = new TimeoutInterval();
-
 			do {
 
 				clearstatcache(true, $this->getStdOutPath());
-
 				$initialized = filesize($this->getStdOutPath()) > 0;
-
 				if ($timeout->expired()) {
 
 					throw new Exception\OMXPlayerException('Timeout expired. OMXPlayer failed to load.');
@@ -115,7 +104,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 			throw new Exception\OMXPlayerException('OMXPlayer failed to load.');
 
 		}
-
 		return $this;
 
 	}
@@ -131,7 +119,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\CanControl();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -148,7 +135,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\ListAudio();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -167,7 +153,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\SelectAudio($index);
-
 		return $command->getFormattedOutput();
 
 	}
@@ -183,7 +168,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\CanGoNext();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -199,7 +183,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\CanGoPrevious();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -215,7 +198,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\CanPause();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -231,7 +213,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\CanPlay();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -247,7 +228,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\CanSeek();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -263,7 +243,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\Duration();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -279,7 +258,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\GetSource();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -295,7 +273,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\PlaybackStatus();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -314,7 +291,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Action($action);
-
 		return $this;
 
 	}
@@ -331,7 +307,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Mute();
-
 		return $this;
 
 	}
@@ -347,7 +322,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Next();
-
 		return $this;
 
 	}
@@ -363,7 +337,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Pause();
-
 		return $this;
 
 	}
@@ -382,7 +355,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Position($time);
-
 		return $this;
 
 	}
@@ -398,7 +370,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\Position();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -414,7 +385,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Previous();
-
 		return $this;
 
 	}
@@ -436,7 +406,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$rate = new Commands\Rate($rate);
-
 		return $rate->getFormattedOutput();
 
 	}
@@ -452,7 +421,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\Rate();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -468,7 +436,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Play();
-
 		return $this;
 
 	}
@@ -487,7 +454,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Seek($time);
-
 		return $this;
 
 	}
@@ -503,7 +469,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Stop();
-
 		return $this;
 
 	}
@@ -520,7 +485,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\ListSubtitles();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -539,7 +503,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\SelectSubtitle($index);
-
 		return $command->getFormattedOutput();
 
 	}
@@ -555,7 +518,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\HideSubtitles();
-
 		return $this;
 
 	}
@@ -571,7 +533,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\ShowSubtitles();
-
 		return $this;
 
 	}
@@ -587,7 +548,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Toggle();
-
 		return $this;
 
 	}
@@ -603,7 +563,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\SupportedUriSchemes();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -619,7 +578,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\SupportedMimeTypes();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -635,7 +593,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		new Commands\Unmute();
-
 		return $this;
 
 	}
@@ -654,7 +611,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\OpenUri($uri);
-
 		return $command->getFormattedOutput();
 
 	}
@@ -668,12 +624,10 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	 * @api
 	 * @see Commands\ListVideo
 	 */
-
 	public function listVideo(): array
 	{
 
 		$command = new Commands\ListVideo();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -692,7 +646,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\Volume();
-
 		return $command->getFormattedOutput();
 
 	}
@@ -714,7 +667,6 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	{
 
 		$command = new Commands\Volume($volume);
-
 		return $command->getFormattedOutput();
 
 	}

@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Do not adjust display refresh rate to match video.
  *
  * @see Argument
  */
 final class NoHdmiClockSync extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class NoHdmiClockSync extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class NoHdmiClockSync extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--nohdmiclocksync';
 		}
-
 		return null;
 
 	}

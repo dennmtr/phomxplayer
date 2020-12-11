@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Set orientation of video (0, 90, 180 or 270)
  *
  * @see Argument
  */
 final class Orientation extends Argument
-
 {
 	/**
 	 * @var int

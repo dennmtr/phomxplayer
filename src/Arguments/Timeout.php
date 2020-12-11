@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Timeout for stalled file/network operations (default 10s).
  *
  * @see Argument
  */
 final class Timeout extends Argument
-
 {
 	/**
 	 * @var array Default values as array.

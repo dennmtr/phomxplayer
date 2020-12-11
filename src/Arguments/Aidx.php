@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Audio stream index.
  *
  * @see Argument
  */
 final class Aidx extends Argument
-
 {
 	/**
 	 * @var array Default values as array.

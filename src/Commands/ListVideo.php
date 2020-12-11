@@ -1,7 +1,6 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Returns and array of all known video streams.
  * The length of the array is the number of streams.
@@ -10,7 +9,6 @@ namespace phOMXPlayer\Commands;
  * @see Command
  */
 final class ListVideo extends Command
-
 {
 
 	/**
@@ -29,7 +27,6 @@ final class ListVideo extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

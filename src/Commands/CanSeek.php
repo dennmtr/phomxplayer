@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Returns the total length of the playing media.
  *
  * @see Command
  */
 final class CanSeek extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class CanSeek extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

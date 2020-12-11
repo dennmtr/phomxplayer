@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Dump stream format before playback.
  *
  * @see Argument
  */
 final class WithInfo extends Argument
-
 {
 	/**
 	 * @var bool Show info.
@@ -53,7 +51,6 @@ final class WithInfo extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -82,7 +79,6 @@ final class WithInfo extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--with-info';
 		}
-
 		return null;
 
 	}

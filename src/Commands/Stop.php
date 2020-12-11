@@ -2,16 +2,12 @@
 
 namespace phOMXPlayer\Commands;
 
-use phOMXPlayer\Exception\OMXPlayerException;
-use phOMXPlayer\TimeoutInterval;
-
 /**
  * Stops the video (terminates the OMXPlayer instance).
  *
  * @see Command
  */
 final class Stop extends Command
-
 {
 
 	/**
@@ -30,7 +26,6 @@ final class Stop extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

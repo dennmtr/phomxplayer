@@ -1,12 +1,10 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * @see Argument
  */
 final class Session extends Argument
-
 {
 	/**
 	 * @var bool
@@ -27,6 +25,7 @@ final class Session extends Argument
 		self::ENABLED,
 		self::DISABLED
 	);
+
 	/**
 	 * Input value validator.
 	 *
@@ -48,10 +47,10 @@ final class Session extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
+
 	/**
 	 * Sanitizes the input value.
 	 *
@@ -64,6 +63,7 @@ final class Session extends Argument
 		return boolval($value);
 
 	}
+
 	/**
 	 * Returns the shell argument.
 	 *
@@ -75,7 +75,6 @@ final class Session extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--session';
 		}
-
 		return null;
 
 	}

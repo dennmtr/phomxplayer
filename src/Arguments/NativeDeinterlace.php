@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Let display handle interlace.
  *
  * @see Argument
  */
 final class NativeDeinterlace extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class NativeDeinterlace extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class NativeDeinterlace extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--nativedeinterlace';
 		}
-
 		return null;
 
 	}

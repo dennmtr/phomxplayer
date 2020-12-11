@@ -10,7 +10,6 @@ use phOMXPlayer\Exception;
  * @see Command
  */
 final class Seek extends Command
-
 {
 	/**
 	 * @var string Contains the required DBusClient method.
@@ -45,7 +44,6 @@ final class Seek extends Command
 		if (static::validateInput($input)) {
 			return (float)$this->input;
 		}
-
 		throw new Exception\CommandException('Invalid input number.');
 
 	}
@@ -61,7 +59,6 @@ final class Seek extends Command
 	{
 
 		if (is_numeric($input)) return true;
-
 		return false;
 
 	}

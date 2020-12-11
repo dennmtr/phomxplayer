@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Commands;
-
 /**
  * Play the video. If the video is playing, it has no effect, if it is paused it will play from current position.
  *
  * @see Command
  */
 final class Play extends Command
-
 {
 
 	/**
@@ -27,7 +25,6 @@ final class Play extends Command
 	{
 
 		if (is_null($input)) return true;
-
 		return false;
 
 	}

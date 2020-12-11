@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * External subtitles in UTF-8 srt format.
  *
  * @see Argument
  */
 final class Subtitles extends Argument
-
 {
 
 	/**

@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Font size in 1/1000 screen height (default: 55).
  *
  * @see Argument
  */
 final class FontSize extends Argument
-
 {
 
 	/**

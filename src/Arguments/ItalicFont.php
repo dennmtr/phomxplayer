@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Default: /usr/share/fonts/truetype/freefont/FreeSansOblique.ttf.
  *
  * @see Argument
  */
 final class ItalicFont extends Argument
-
 {
 
 	/**

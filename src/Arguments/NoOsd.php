@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Do not display status information on screen.
  *
  * @see Argument
  */
 final class NoOsd extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class NoOsd extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class NoOsd extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--no-osd';
 		}
-
 		return null;
 
 	}

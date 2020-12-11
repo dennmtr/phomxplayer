@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Amount of buffered data required to finish buffering [s].
  *
  * @see Argument
  */
 final class Threshold extends Argument
-
 {
 	/**
 	 * @var array Default values as array.

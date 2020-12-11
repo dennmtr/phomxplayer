@@ -1,19 +1,17 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Subtitle alignment (default: left).
  *
  * @see Argument
  */
 final class Align extends Argument
-
 {
 	/**
 	 * @var string
 	 */
-	const ALIGN_CENTER 	= 'center';
+	const ALIGN_CENTER = 'center';
 	/**
 	 * @var string
 	 */
@@ -21,7 +19,7 @@ final class Align extends Argument
 	/**
 	 * @var string
 	 */
-	const ALIGN_RIGHT 	= 'right';
+	const ALIGN_RIGHT = 'right';
 
 	/**
 	 * @var array Default values as array.

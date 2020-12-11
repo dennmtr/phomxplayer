@@ -17,7 +17,6 @@ use phOMXPlayer\Exception;
  * @see Command
  */
 final class Volume extends Command
-
 {
 
 	/**
@@ -37,13 +36,11 @@ final class Volume extends Command
 			array('string', escapeshellarg('org.mpris.MediaPlayer2.Player')),
 			array('string', escapeshellarg('Volume'))
 		);
-
 		if (!is_null($this->input)) {
 
 			$params[] = array('variant:double', $this->input);
 
 		}
-
 		return $params;
 
 	}
@@ -62,7 +59,6 @@ final class Volume extends Command
 		if (is_null($input)) {
 
 			$this->method .= '.Get';
-
 			return null;
 
 		} else {
@@ -70,11 +66,9 @@ final class Volume extends Command
 			if (static::validateInput($input)) {
 
 				$this->method .= '.Set';
-
 				return (float)$input;
 
 			}
-
 			throw new Exception\CommandException('Invalid input number.');
 
 		}
@@ -92,7 +86,6 @@ final class Volume extends Command
 	{
 
 		if (is_numeric($input) && $input <= 1 && $input >= 0) return true;
-
 		return false;
 
 	}
@@ -106,7 +99,6 @@ final class Volume extends Command
 	{
 
 		preg_match_all('/double\s(.+)/', $this->stdout, $output_array);
-
 		if (isset($output_array[1][0])) {
 
 			if (is_numeric($output_array[1][0])) {
@@ -116,7 +108,6 @@ final class Volume extends Command
 			}
 
 		}
-
 		return null;
 
 	}

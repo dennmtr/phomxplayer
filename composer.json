@@ -2,7 +2,12 @@
 	"name": "dennmtr/phomxplayer",
 	"type": "library",
 	"description": "phOMXPlayer - OMXPlayer wrap shell script",
-	"keywords": ["omxplayer","dbus","raspberry", "rpi"],
+	"keywords": [
+		"omxplayer",
+		"dbus",
+		"raspberry",
+		"rpi"
+	],
 	"version": "0.9.9",
 	"license": "MIT",
 	"authors": [

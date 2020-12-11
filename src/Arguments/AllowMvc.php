@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Allow decoding of both views of MVC stereo stream.
  *
  * @see Argument
  */
 final class AllowMvc extends Argument
-
 {
 	/**
 	 * @var bool Enable
@@ -52,7 +50,6 @@ final class AllowMvc extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class AllowMvc extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--allow-mvc';
 		}
-
 		return null;
 
 	}

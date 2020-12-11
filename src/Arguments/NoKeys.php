@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  *  Disable keyboard input (prevents hangs for certain TTYs).
  *
  * @see Argument
  */
 final class NoKeys extends Argument
-
 {
 	/**
 	 * @var bool Disable keyboard input.
@@ -51,7 +49,6 @@ final class NoKeys extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -80,7 +77,6 @@ final class NoKeys extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--no-keys';
 		}
-
 		return null;
 
 	}

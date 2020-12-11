@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Options passed to demuxer, e.g., 'rtsp_transport:tcp,...'.
  *
  * @see Argument
  */
 final class Avdict extends Argument
-
 {
 
 	/**

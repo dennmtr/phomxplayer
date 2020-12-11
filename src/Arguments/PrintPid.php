@@ -1,12 +1,10 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * @see Argument
  */
 final class PrintPid extends Argument
-
 {
 	/**
 	 * @var array Default values as array.
@@ -14,6 +12,7 @@ final class PrintPid extends Argument
 	const ACCEPTABLE_VALUES = array(
 		['type' => 'int', 'label' => 'integer']
 	);
+
 	/**
 	 * Input value validator.
 	 *
@@ -39,6 +38,7 @@ final class PrintPid extends Argument
 		return (int)$value;
 
 	}
+
 	/**
 	 * Returns the shell argument.
 	 *

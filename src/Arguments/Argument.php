@@ -13,15 +13,15 @@ abstract class Argument
 {
 
 	/**
-	 * @var mixed	Contains the argument's default value if input value is missing.
+	 * @var mixed    Contains the argument's default value if input value is missing.
 	 */
 	const DEFAULT_VALUE = null;
 	/**
-	 * @var array	Contains an array with the acceptable input values.
+	 * @var array    Contains an array with the acceptable input values.
 	 */
 	const ACCEPTABLE_VALUES = [];
 	/**
-	 * @var mixed	Contains the sanitized input value.
+	 * @var mixed    Contains the sanitized input value.
 	 */
 	protected $value;
 
@@ -37,21 +37,16 @@ abstract class Argument
 		if ($value === null) {
 			$value = static::DEFAULT_VALUE;
 		}
-
 		if ($value === null || !static::isValid($value)) {
 
 			$message = "";
-
 			$accepted_values = self::getAcceptedValues(true);
-
 			if (!empty($accepted_values)) {
 				$message = ". Accepted values: " . $accepted_values;
 			}
-
 			throw new Exception\ArgumentException('Invalid input parameter' . $message);
 
 		}
-
 		$this->value = static::sanitizeValue($value);
 
 	}
@@ -92,15 +87,12 @@ abstract class Argument
 				}
 
 			}
-
 			return $value;
 
 		}, static::ACCEPTABLE_VALUES);
-
 		if ($as_string) {
 			return implode(', ', $values);
 		}
-
 		return $values;
 
 	}
@@ -125,9 +117,7 @@ abstract class Argument
 	{
 
 		if (!is_numeric($value)) $value = str_replace(',', '.', $value);
-
 		if (!is_numeric($value)) return null;
-
 		return floatval($value);
 
 	}

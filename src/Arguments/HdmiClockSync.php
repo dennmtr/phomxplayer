@@ -1,14 +1,12 @@
 <?php
 
 namespace phOMXPlayer\Arguments;
-
 /**
  * Display refresh rate to match video (default).
  *
  * @see Argument
  */
 final class HdmiClockSync extends Argument
-
 {
 	/**
 	 * @var bool
@@ -52,7 +50,6 @@ final class HdmiClockSync extends Argument
 				break;
 
 		}
-
 		return in_array($value, static::ACCEPTABLE_VALUES, true);
 
 	}
@@ -81,7 +78,6 @@ final class HdmiClockSync extends Argument
 		if ($this->value == self::ENABLED) {
 			return '--hdmiclocksync';
 		}
-
 		return null;
 
 	}
