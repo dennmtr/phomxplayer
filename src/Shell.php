@@ -34,7 +34,7 @@ class Shell
 	 */
 	private $address_path;
 	/**
-	 * @var string 	Contains the temporary path to store the session files.
+	 * @var string	Contains the temporary path to store the session files.
 	 */
 	private $session_path;
 

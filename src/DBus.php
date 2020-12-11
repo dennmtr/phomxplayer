@@ -13,8 +13,8 @@ class DBus extends ShellArguments
 	/**
 	 * DBus session constructor.
 	 *
-	 * @param bool $autostart 				Execute after initialization, default TRUE.
-	 * @param array|null $shell_arguments 	Used to append default shell arguments.
+	 * @param bool $autostart				Execute after initialization, default TRUE.
+	 * @param array|null $shell_arguments	Used to append default shell arguments.
 	 *
 	 * @throws Exception\ShellException
 	 * @throws Exception\DBusException

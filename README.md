@@ -90,7 +90,7 @@ echo 'Movie duration: ' . $command->getFormattedOutput();
 
 ```
 
-See [Predefined command list](#available-commands)
+See [Predefined command list](#predefined-commands)
 
 #### Validate
 
@@ -151,7 +151,7 @@ $player->adev = $input;         // It will throw an ArgumentException because bo
 
 ```
 
-See [Argument list](#available-arguments)
+See [Argument list](#argument-List)
 
 #### Direct call
 

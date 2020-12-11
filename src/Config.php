@@ -16,26 +16,26 @@ final class Config
 	 * 				Define the basename of the file if its path included in PATH environment variable.
 	 * 				Default:		omxplayer.bin
 	 */
-	const OMXPLAYER_BINARY_PATH = 	'omxplayer.bin';
+	const OMXPLAYER_BINARY_PATH =	'omxplayer.bin';
 	/**
 	 * @var string 	Contains the absolute path of the dbus-daemon binary file.
 	 * 				Define the basename of the file if its path included in PATH environment variable.
 	 * 				Default: 		dbus-daemon
 	 */
-	const DBUS_DAEMON_PATH = 		'dbus-daemon';
+	const DBUS_DAEMON_PATH =		'dbus-daemon';
 	/**
 	 * @var string 	Contains the absolute path of the dbus-send binary file.
 	 * 				Define the basename of the file if its path included in PATH environment variable.
 	 * 				Default: 		dbus-send
 	 */
-	const DBUS_CLIENT_PATH = 		'dbus-send';
+	const DBUS_CLIENT_PATH =		'dbus-send';
 	/**
 	 * @var string 	Contains the absolute path to store session files. The path MUST be writable.
 	 * 				Small files in size.
 	 * 				Default: 		/dev/shm (shared memory)
 	 * 				Recommended: 	/dev/shm, /tmp
 	 */
-	const SESSION_PATH = 			'/dev/shm';
+	const SESSION_PATH =			'/dev/shm';
 	/**
 	 * @var int 	The number of milliseconds to count before timeout expiration.
 	 * 				Default: 		10000 (10 sec.)

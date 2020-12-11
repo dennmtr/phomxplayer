@@ -11,14 +11,14 @@ use phOMXPlayer\Exception;
  * Initiates a DBus session, proper configured for an OMXPlayer shell instance,
  * controlled via dbus-send commands.
  *
- * @version 	0.9.9 beta
+ * @version		0.9.9 beta
  *
- * @author 		Dionisis Mitropoulos <dennmtr@gmail.com>
+ * @author		Dionisis Mitropoulos <dennmtr@gmail.com>
  *
- * @copyright 	Copyright (c) 2020-2021, Dionisis Mitropoulos
+ * @copyright	Copyright (c) 2020-2021, Dionisis Mitropoulos
  *
- * @link 		https://github.com/dennmtr/phomxplayer
- * @link 		https://github.com/popcornmix/omxplayer Official OMXPlayer documentation.
+ * @link		https://github.com/dennmtr/phomxplayer
+ * @link		https://github.com/popcornmix/omxplayer Official OMXPlayer documentation.
  *
  * Attention!
  *
@@ -44,17 +44,17 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 	 *        'blank' => true
 	 *     ]);
 	 *
-	 * @param array|null $shell_arguments 	Contains OMXPlayer configuration options
+	 * @param array|null $shell_arguments	Contains OMXPlayer configuration options
 	 *
 	 *  If skipped or if array is empty it will pass the default configuration options.
 	 *  A null value passes no options.
 	 *
-	 * @param DBusClient|null $dbus 		Contains an optional active DBusClient instance.
+	 * @param DBusClient|null $dbus			Contains an optional active DBusClient instance.
 	 *
 	 * @throws Exception\ShellException
-	 * @see OMXPlayerArgumentsInterface 	For the available shell arguments.
-	 * @see CommandInterface 				For the available commands.
-	 * @see Config 							For the list of default named keys and values.
+	 * @see OMXPlayerArgumentsInterface		For the available shell arguments.
+	 * @see CommandInterface				For the available commands.
+	 * @see Config							For the list of default named keys and values.
 	 */
 	public function __construct(?array $shell_arguments = [], ?DBusClient $dbus = null)
 	{
