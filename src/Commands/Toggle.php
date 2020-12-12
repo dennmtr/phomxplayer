@@ -58,7 +58,7 @@ final class Toggle extends Command
 	 */
 	protected function formatOutput()
 	{
-		return $this->stdout;
+		return null;
 	}
 
 }

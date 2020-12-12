@@ -42,9 +42,9 @@ final class SelectSubtitle extends Command
 	protected function sanitizeInput($input): int
 	{
 
-		if (static::validateInput($this->input)) {
+		if (static::validateInput($input)) {
 
-			return (int)$this->input;
+			return (int)$input;
 
 		}
 		throw new Exception\CommandException('Invalid index number.');

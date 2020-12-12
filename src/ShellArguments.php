@@ -51,7 +51,7 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	 *      ]);
 	 *
 	 *      $player->adev->getValue();        // Returns 'hdmi' string.
-	 *      $player->getShellArgs(false);    // Returns '--adev hdmi --no-keys --with-info' string.
+	 *      $player->getShellArgs(false, false);    // Returns '--adev hdmi --no-keys --with-info' string.
 	 *
 	 *      $input = true;
 	 *
@@ -139,20 +139,19 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	public function __set(string $argument, $value): self
 	{
 
-		$this->$argument($value);
-		return $this;
+		return $this->$argument($value);
 
 	}
 
 	/**
 	 * Returns all the arguments as string.
 	 *
-	 * @param bool $leading_space Prepends a leading space in string. default TRUE.
+	 * @param bool $padding_space Prepends and appends a white space in string. default TRUE.
 	 * @param bool $as_array If TRUE returns the arguments as array.
 	 *
 	 * @return string|array
 	 */
-	public function getShellArgs(bool $leading_space = true, bool $as_array = false)
+	public function getShellArgs(bool $as_array = false, bool $padding_space = true)
 	{
 
 		$arguments = array_map(function (Argument $argument) {
@@ -161,7 +160,14 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 
 		}, $this->arguments);
 		$arguments = array_filter($arguments);
-		return (!$as_array ? ($leading_space ? ' ' : '') . implode(' ', $arguments) : $arguments);
+		if (!$as_array) {
+			$string_args = trim(implode(' ', $arguments));
+			if (empty($string_args)) return $string_args;
+			if ($padding_space) return ' '.$string_args.' ';
+			return $string_args;
+		}
+
+		return $arguments;
 
 	}
 
@@ -964,10 +970,10 @@ class ShellArguments extends Shell implements OMXPlayerArgumentsInterface, DBusA
 	 * @throws Exception\ArgumentException
 	 * @see Arguments\ItalicFont
 	 */
-	public function italicfont($value): self
+	public function italic_font($value): self
 	{
 
-		$this->arguments['italicfont'] = new Arguments\ItalicFont($value);
+		$this->arguments['italic_font'] = new Arguments\ItalicFont($value);
 		return $this;
 
 	}

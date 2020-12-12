@@ -499,7 +499,7 @@ interface OMXPlayerArgumentsInterface
 	 * @throws Exception\ArgumentException
 	 * @see Arguments\ItalicFont
 	 */
-	public function italicfont($value): ShellArguments;
+	public function italic_font($value): ShellArguments;
 
 
 }

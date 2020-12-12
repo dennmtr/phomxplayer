@@ -139,7 +139,7 @@ $player->map([
 ]);
 
 $player->adev->getValue();      // Returns 'hdmi' string.
-$player->getShellArgs(false);    // Returns '--adev hdmi --no-keys --with-info' string.
+$player->getShellArgs(false, false);    // Returns '--adev hdmi --no-keys --with-info' string.
 
 $input = true;
 
@@ -216,7 +216,7 @@ A list of OMXPlayer shell arguments...
 |Argument|Named Key|Param Type|Acceptable Values|Description|
 |---|---|---|---|---|
 Adev|`adev`|string|`hdmi` `local` `both` `alsa`|Audio out device|
-Advanced|`advanced`|bool|-|Enable/disable advanced deinterlace for HD videos (default enabled)|
+Advanced|`advanced`|int|`0` `1`|Enable/disable advanced deinterlace for HD videos (default enabled)|
 Aidx|`aidx`|int|-|Audio stream index|
 Align|`align`|string|`left` `center` `right`|Subtitle alignment (default: left)|
 AllowMvc|`allow-mvc`|bool|-|Allow decoding of both views of MVC stereo stream|
@@ -240,7 +240,7 @@ Layout|`layout`|string|`x.x`|Set output speaker layout (e.g. 5.1)|
 Lines|`lines`|int|-|Number of lines in the subtitle buffer (default: 3)|
 Live|`live`|bool|-|Set for live tv or vod type stream|
 Loop|`loop`|bool|-|Loop file. Ignored if file not seekable|
-Mode3D|`3d`|string|`FP` `TB` `SBS`|Switch tv into 3d mode|
+Mode3D|`mode3d`|string|`FP` `TB` `SBS`|Switch tv into 3d mode|
 NativeDeinterlace|`nativedeinterlace`|bool|-|let display handle interlace|
 NoBoostOnDownmix|`no-boost-on-downmix`|bool|-|Don't boost volume when downmixing|
 NoDeinterlace|`nodeinterlace`|bool|-|Force no deinterlacing|
@@ -258,6 +258,16 @@ Timeout|`timeout`|int|-|Timeout for stalled file/network operations (default 10s
 UserAgent|`user-agent`|string|-|Send specified User-Agent as part of HTTP requests|
 Vol|`vol`|float|`0...1`|set initial volume in millibels (default 0)|
 WithInfo|`with-info`|bool|-|dump stream format before playback|
+
+## Development
+
+#### Unit Tests
+
+Don't forget to define a valid absolute file path, or a valid url address for the tests process in phpunit.xml configuration file
+
+```xml
+<const name="TEST_URI" value="/file/path/sample.mp4"/>
+```
 
 ## Support
 

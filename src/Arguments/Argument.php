@@ -3,6 +3,7 @@
 namespace phOMXPlayer\Arguments;
 
 use phOMXPlayer\Exception;
+use ReflectionClass;
 
 /**
  * Abstract Class
@@ -44,7 +45,10 @@ abstract class Argument
 			if (!empty($accepted_values)) {
 				$message = ". Accepted values: " . $accepted_values;
 			}
-			throw new Exception\ArgumentException('Invalid input parameter' . $message);
+
+			$reflect = new ReflectionClass($this);
+
+			throw new Exception\ArgumentException($reflect->getShortName() . ': Invalid input parameter' . $message);
 
 		}
 		$this->value = static::sanitizeValue($value);

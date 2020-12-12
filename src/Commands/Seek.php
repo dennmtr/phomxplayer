@@ -66,11 +66,21 @@ final class Seek extends Command
 	/**
 	 * Formats the stdout string buffer accordingly.
 	 *
-	 * @return null
+	 * @return float|null
 	 */
-	protected function formatOutput()
+	protected function formatOutput() : ?float
 	{
-		return null;
+
+		preg_match_all('/int64\s(\d+)/', $this->stdout, $output_array);
+		if (isset($output_array[1][0])) {
+
+			if (is_numeric($output_array[1][0])) {
+
+				return (float)($output_array[1][0]);
+
+			}
+
+		}
 	}
 
 }

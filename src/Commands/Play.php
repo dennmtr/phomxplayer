@@ -12,7 +12,7 @@ final class Play extends Command
 	/**
 	 * @var string Contains the required DBusClient method.
 	 */
-	protected $method = 'org.mpris.MediaPlayer2.Player.Mute';
+	protected $method = 'org.mpris.MediaPlayer2.Player.Play';
 
 	/**
 	 * Validates the input value.

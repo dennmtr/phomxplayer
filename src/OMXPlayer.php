@@ -11,7 +11,7 @@ use phOMXPlayer\Exception;
  * Initiates a DBus session, proper configured for an OMXPlayer shell instance,
  * controlled via dbus-send commands.
  *
- * @version         0.9.9 beta
+ * @version         1.0.0-beta1
  *
  * @author          Dionisis Mitropoulos <dennmtr@gmail.com>
  *
@@ -82,7 +82,7 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 		$this->setEnv('LD_LIBRARY_PATH', '/opt/vc/lib');
 		$this->setEnv('DBUS_SESSION_BUS_ADDRESS', $this->dbus->getAddress());
 		$this->setEnv('DBUS_SESSION_BUS_PID', $this->dbus->getPid());
-		$pid = (int)shell_exec('(nohup stdbuf -o0 ' . Config::getOMXPlayerPath() . $this->getShellArgs() . ' ' . escapeshellarg($uri) . ' >>' . $this->getStdOutPath() . ' 2>&1) >/dev/null 2>&1 & echo $!');
+		$pid = (int)shell_exec('(nohup stdbuf -o0 ' . Config::getOMXPlayerPath() . $this->getShellArgs() . ' '.escapeshellarg($uri) . ' >>' . $this->getStdOutPath() . ' 2>&1) >/dev/null 2>&1 & echo $!');
 		if (!empty($pid)) {
 
 			$this->init($pid);
@@ -90,7 +90,7 @@ final class OMXPlayer extends ShellArguments implements CommandInterface
 			do {
 
 				clearstatcache(true, $this->getStdOutPath());
-				$initialized = filesize($this->getStdOutPath()) > 0;
+				$initialized = is_file($this->getStdOutPath()) && filesize($this->getStdOutPath()) > 0;
 				if ($timeout->expired()) {
 
 					throw new Exception\OMXPlayerException('Timeout expired. OMXPlayer failed to load.');

@@ -85,8 +85,7 @@ final class Volume extends Command
 	public static function validateInput($input = null): bool
 	{
 
-		if (is_numeric($input) && $input <= 1 && $input >= 0) return true;
-		return false;
+		return is_numeric($input) && $input <= 1 && $input >= 0;
 
 	}
 

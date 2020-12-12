@@ -26,7 +26,7 @@ final class Alpha extends Argument
 	{
 
 		$value = self::sanitizeValue($value);
-		return !empty($value) && $value >= 0 && $value <= 255;
+		return $value >= 0 && $value <= 255;
 
 	}
 

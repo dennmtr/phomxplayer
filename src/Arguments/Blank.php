@@ -68,7 +68,7 @@ final class Blank extends Argument
 	public static function sanitizeValue($value)
 	{
 
-		if (is_numeric($value)) return boolval($value);
+		if (is_numeric($value) || is_bool($value)) return boolval($value);
 		return (string)$value;
 
 	}

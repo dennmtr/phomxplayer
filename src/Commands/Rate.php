@@ -58,10 +58,10 @@ final class Rate extends Command
 
 		} else {
 
-			if (static::validateInput($this->input)) {
+			if (static::validateInput($input)) {
 
 				$this->method .= '.Set';
-				return (float)$this->input;
+				return (float)$input;
 
 			}
 			throw new Exception\CommandException('Invalid input rate number.');

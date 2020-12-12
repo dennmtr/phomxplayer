@@ -26,8 +26,8 @@ final class OpenUri extends Command
 	public static function validateInput($input = null): bool
 	{
 
-		if (is_null($input)) return true;
-		return false;
+		return is_file($input);
+
 
 	}
 
@@ -55,7 +55,7 @@ final class OpenUri extends Command
 	{
 
 		if (is_file($input)) {
-			return $this->input;
+			return $input;
 		}
 		throw new Exception\CommandException('File not found.');
 

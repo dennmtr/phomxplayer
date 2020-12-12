@@ -162,7 +162,7 @@ class Shell
 	public final function alive(): bool
 	{
 
-		return !empty($this->pid);
+		return !empty($this->pid) && posix_getpgid($this->pid) !== false;
 
 	}
 
@@ -250,7 +250,7 @@ class Shell
 	protected final function kill(int $signal = 2): void
 	{
 
-		if (!empty($this->pid)) {
+		if ($this->alive()) {
 
 			$timeout = new TimeoutInterval();
 			do {
