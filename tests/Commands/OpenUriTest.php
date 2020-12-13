@@ -14,9 +14,13 @@ final class OpenUriTest extends TestCase
 
 		$player = new OMXPlayer();
 		$this->assertTrue($player->alive(), 'OMXPlayer must be active before testing.');
+
+
+		if (filter_var(TEST_URI, FILTER_VALIDATE_URL)) return;
+
 		$command = new Commands\OpenUri(TEST_URI);
-		$this->assertEmpty($command->getStdOut());
-		$this->assertNull($command->getFormattedOutput());
+		$this->assertEquals(TEST_URI, $command->getStdOut());
+		$this->assertEquals(TEST_URI, $command->getFormattedOutput());
 
 	}
 

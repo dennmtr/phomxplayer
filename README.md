@@ -31,7 +31,7 @@ Publish configuration with **artisan** command `optional`
 
 ```console
 
-$ php artisan vendor:publish
+$ php artisan vendor:publish --tag phOMXPlayer
 
 ```
 
@@ -261,7 +261,7 @@ WithInfo|`with-info`|bool|-|dump stream format before playback|
 
 ## Development
 
-#### Unit Tests
+#### Unit Testing
 
 Don't forget to define a valid absolute file path, or a valid url address for the tests process in phpunit.xml configuration file
 

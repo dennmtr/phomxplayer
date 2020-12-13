@@ -21,8 +21,6 @@ final class PositionTest extends TestCase
 		$current_position = $command->getFormattedOutput();
 		$command = new Commands\Position(0);
 		$this->assertLessThanOrEqual(0, $command->getFormattedOutput());
-		$command = new Commands\Position();
-		$this->assertLessThanOrEqual(0, $command->getFormattedOutput());
 		$ms = round(($duration / 2));
 		$command = new Commands\Position($ms);
 		$this->assertIsNumeric($command->getFormattedOutput());

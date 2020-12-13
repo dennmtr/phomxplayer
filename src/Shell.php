@@ -47,7 +47,7 @@ class Shell
 	{
 
 		if (!$this->check_os()) {
-			throw new Exception\ShellException('This operation system is not supported!');
+			throw new Exception\ShellException('This operation system is not supported.');
 		}
 		$this->session_path = Config::getSessionPath();
 		if (!is_writable($this->session_path)) {
@@ -56,6 +56,12 @@ class Shell
 
 		}
 		$this->user = posix_getpwuid(posix_geteuid())['name'];
+		if (!$this->memberOfGroup('video')) {
+			throw new Exception\ShellException("OMXPlayer requires a user member of video group.");
+		}
+		if (!$this->memberOfGroup('audio')) {
+			throw new Exception\ShellException("OMXPlayer requires a user member of audio group.");
+		}
 		$prefix = $this->getFilePrefix();
 		$this->pid_path = $this->session_path . '/' . $prefix . $this->user . '.pid';
 		$this->address_path = $this->session_path . '/' . $prefix . $this->user . '.address';
@@ -143,6 +149,20 @@ class Shell
 	}
 
 	/**
+	 * Checks if user is member of video group name.
+	 *
+	 * @param string $group_name Contains the name of the group to match.
+	 * @return bool
+	 */
+	private function memberOfGroup(string $group_name): bool
+	{
+
+		$group_info = posix_getgrnam($group_name);
+		return $group_info !== false && in_array($this->user, $group_info['members'], true);
+
+	}
+
+	/**
 	 * Returns the captured stdout buffer.
 	 *
 	 * @return string|null
@@ -151,18 +171,6 @@ class Shell
 	{
 
 		return file_get_contents($this->stdout_path);
-
-	}
-
-	/**
-	 * Whether or not the current process pid is active.
-	 *
-	 * @return bool
-	 */
-	public final function alive(): bool
-	{
-
-		return !empty($this->pid) && posix_getpgid($this->pid) !== false;
 
 	}
 
@@ -262,6 +270,18 @@ class Shell
 			} while (!$killed);
 
 		}
+
+	}
+
+	/**
+	 * Whether or not the current process pid is active.
+	 *
+	 * @return bool
+	 */
+	public final function alive(): bool
+	{
+
+		return !empty($this->pid) && posix_getpgid($this->pid) !== false;
 
 	}
 

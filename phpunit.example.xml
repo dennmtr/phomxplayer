@@ -12,11 +12,13 @@
 		<env name="APP_ENV" value="testing"/>
 	</php>
 	<testsuites>
+		<!--Draft tests-->
 		<testsuite name="unit">
 			<file>tests/ConfigTest.php</file>
 			<file>tests/ExamplesTest.php</file>
 			<file>tests/DupDBusSessionAvoidedTest.php</file>
 			<file>tests/OMXPlayerTest.php</file>
+			<file>tests/Commands/OpenUriTest.php</file>
 			<file>tests/Commands/CanControlTest.php</file>
 			<file>tests/Commands/CanGoNextTest.php</file>
 			<file>tests/Commands/CanGoPreviousTest.php</file>

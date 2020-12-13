@@ -12,7 +12,9 @@ final class ConfigTest extends TestCase
 	public function testUri()
 	{
 
-		$this->assertFileIsReadable(TEST_URI);
+		$pass = is_readable(TEST_URI) || filter_var(TEST_URI, FILTER_VALIDATE_URL);
+
+		$this->assertTrue($pass, 'Uri expects a valid absolute path of file or a valid url address.');
 
 	}
 

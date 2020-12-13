@@ -26,7 +26,7 @@ final class OpenUri extends Command
 	public static function validateInput($input = null): bool
 	{
 
-		return is_file($input);
+		return is_readable($input) || filter_var($input, FILTER_VALIDATE_URL);
 
 
 	}
