@@ -21,7 +21,7 @@ The **recommended** way to install phOMXPlayer is through Composer
 
 ```console
 
-$ composer require dennmtr/phomxplayer
+$ composer require dennmtr/phomxplayer:dev-main
 
 ```
 
