@@ -8,6 +8,7 @@
 	defaultTestSuite="unit"
 	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
 	<php>
+		<!--		Html entity encode (for urls)-->
 		<const name="TEST_URI" value=""/>
 		<env name="APP_ENV" value="testing"/>
 	</php>
