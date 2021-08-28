@@ -15,112 +15,112 @@ use phOMXPlayer\Exception;
 final class Position extends Command
 {
 
-	/**
-	 * @var string Contains the required DBusClient method.
-	 */
-	protected $method = 'org.';
+  /**
+   * @var string Contains the required DBusClient method.
+   */
+  protected $method = 'org.';
 
-	/**
-	 * If input value is null will return the current position
-	 * If input is a valid input time will seek to the specific location
-	 *     *
-	 * @return array
-	 */
-	protected function getParams(): array
-	{
+  /**
+   * If input value is null will return the current position
+   * If input is a valid input time will seek to the specific location
+   *     *
+   * @return array
+   */
+  protected function getParams(): array
+  {
 
-		if (is_null($this->input)) {
+    if (is_null($this->input)) {
 
-			return array(
-				array('string', 'org.mpris.MediaPlayer2.Player'),
-				array('string', 'Position'),
-			);
+      return array(
+        array('string', 'org.mpris.MediaPlayer2.Player'),
+        array('string', 'Position'),
+      );
 
-		} else {
+    } else {
 
-			return array(
-				array('objpath', '/not/used'),
-				array('int64', $this->input),
-			);
+      return array(
+        array('objpath', '/not/used'),
+        array('int64', $this->input),
+      );
 
-		}
+    }
 
-	}
+  }
 
-	/**
-	 * Sanitizes the input value.
-	 *
-	 * @param mixed $input
-	 *
-	 * @return null
-	 * @throws Exception\CommandException
-	 */
-	protected function sanitizeInput($input)
-	{
+  /**
+   * Sanitizes the input value.
+   *
+   * @param mixed $input
+   *
+   * @return null
+   * @throws Exception\CommandException
+   */
+  protected function sanitizeInput($input)
+  {
 
-		if (is_null($input)) {
+    if (is_null($input)) {
 
-			$this->method .= 'freedesktop.DBus.Properties.Get';
-			return null;
+      $this->method .= 'freedesktop.DBus.Properties.Get';
+      return null;
 
-		} else {
+    } else {
 
-			if (static::validateInput($input)) {
+      if (static::validateInput($input)) {
 
-				$this->method .= 'mpris.MediaPlayer2.Player.SetPosition';
-				return (float)$input;
+        $this->method .= 'mpris.MediaPlayer2.Player.SetPosition';
+        return (float)$input;
 
-			}
-			throw new Exception\CommandException('Invalid input position number.');
+      }
+      throw new Exception\CommandException('Invalid input position number.');
 
-		}
+    }
 
-	}
+  }
 
-	/**
-	 * Validates the input value.
-	 *
-	 * @param mixed $input
-	 *
-	 * @return bool
-	 */
-	public static function validateInput($input = null): bool
-	{
+  /**
+   * Validates the input value.
+   *
+   * @param mixed $input
+   *
+   * @return bool
+   */
+  public static function validateInput($input = null): bool
+  {
 
-		if (is_numeric($input) && $input >= 0) return true;
-		return false;
+    if (is_numeric($input) && $input >= 0) return true;
+    return false;
 
-	}
+  }
 
-	/**
-	 * Formats the stdout string buffer accordingly.
-	 *
-	 * @return float
-	 */
-	protected function formatOutput(): ?float
-	{
+  /**
+   * Formats the stdout string buffer accordingly.
+   *
+   * @return float
+   */
+  protected function formatOutput(): ?float
+  {
 
-		if (is_null($this->input)) {
+    if (is_null($this->input)) {
 
-			return (float)explode('int64', $this->stdout)[1];
+      return (float)explode('int64', $this->stdout)[1];
 
-		} else {
+    } else {
 
-			preg_match_all('/int64\s(\d+)/', $this->stdout, $output_array);
-			if (isset($output_array[1][0])) {
+      preg_match_all('/int64\s(\d+)/', $this->stdout, $output_array);
+      if (isset($output_array[1][0])) {
 
-				if (is_numeric($output_array[1][0])) {
+        if (is_numeric($output_array[1][0])) {
 
-					return (float)($output_array[1][0]);
+          return (float)($output_array[1][0]);
 
-				}
+        }
 
-			}
+      }
 
-		}
-		return null;
+    }
+    return null;
 
-	}
+  }
 
 //	public static function convertFormattedTimeToMs(?string $time = null) : ?float {
 //

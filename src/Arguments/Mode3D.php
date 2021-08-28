@@ -8,64 +8,64 @@ namespace phOMXPlayer\Arguments;
  */
 final class Mode3D extends Argument
 {
-	/**
-	 * @var string
-	 */
-	const FRAME_PACKING = 'FP';
-	/**
-	 * @var string
-	 */
-	const TOP_BOTTOM = 'TB';
-	/**
-	 * @var string
-	 */
-	const SBS = 'SBS';
+  /**
+   * @var string
+   */
+  const FRAME_PACKING = 'FP';
+  /**
+   * @var string
+   */
+  const TOP_BOTTOM = 'TB';
+  /**
+   * @var string
+   */
+  const SBS = 'SBS';
 
-	/**
-	 * @var array Default values as array.
-	 */
-	const ACCEPTABLE_VALUES = array(
-		self::FRAME_PACKING,
-		self::TOP_BOTTOM,
-		self::SBS
-	);
+  /**
+   * @var array Default values as array.
+   */
+  const ACCEPTABLE_VALUES = array(
+    self::FRAME_PACKING,
+    self::TOP_BOTTOM,
+    self::SBS
+  );
 
-	/**
-	 * Input value validator.
-	 *
-	 * @param mixed $value
-	 * @return bool
-	 */
-	public static function isValid($value): bool
-	{
+  /**
+   * Input value validator.
+   *
+   * @param mixed $value
+   * @return bool
+   */
+  public static function isValid($value): bool
+  {
 
-		return in_array($value, static::ACCEPTABLE_VALUES, true);
+    return in_array($value, static::ACCEPTABLE_VALUES, true);
 
-	}
+  }
 
-	/**
-	 * Sanitizes the input value.
-	 *
-	 * @param mixed $value
-	 * @return string
-	 */
-	public static function sanitizeValue($value): string
-	{
+  /**
+   * Sanitizes the input value.
+   *
+   * @param mixed $value
+   * @return string
+   */
+  public static function sanitizeValue($value): string
+  {
 
-		return (string)$value;
+    return (string)$value;
 
-	}
+  }
 
-	/**
-	 * Returns the shell argument.
-	 *
-	 * @return string
-	 */
-	public function getShellArg(): string
-	{
+  /**
+   * Returns the shell argument.
+   *
+   * @return string
+   */
+  public function getShellArg(): string
+  {
 
-		return '--3d ' . $this->value;
+    return '--3d ' . $this->value;
 
-	}
+  }
 
 }

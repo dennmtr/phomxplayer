@@ -1,48 +1,48 @@
 {
-	"name": "dennmtr/phomxplayer",
-	"type": "library",
-	"description": "phOMXPlayer - OMXPlayer wrap shell script",
-	"keywords": [
-		"omxplayer",
-		"dbus",
-		"raspberry",
-		"rpi"
-	],
-	"version": "v1.0.0-beta",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Dionisis Mitropoulos",
-			"email": "dennmtr@gmail.com"
-		}
-	],
-	"support": {
-		"email": "dennmtr+phomxplayer@gmail.com",
-		"homepage": "https://github.com/dennmtr/phomxplayer"
-	},
-	"require": {
-		"php": ">=7.3",
-		"ext-posix": "*"
-	},
-	"minimum-stability": "beta",
-	"autoload": {
-		"psr-4": {
-			"phOMXPlayer\\": "src/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Tests\\": "tests/"
-		}
-	},
-	"extra": {
-		"laravel": {
-			"providers": [
-				"phOMXPlayer\\Providers\\OMXPlayerServiceProvider"
-			]
-		}
-	},
-	"require-dev": {
-		"phpunit/phpunit": "^9"
-	}
+  "name": "dennmtr/phomxplayer",
+  "type": "library",
+  "description": "phOMXPlayer - OMXPlayer wrap shell script",
+  "keywords": [
+    "omxplayer",
+    "dbus",
+    "raspberry",
+    "rpi"
+  ],
+  "version": "v1.0.0-beta",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dionisis Mitropoulos",
+      "email": "dennmtr@gmail.com"
+    }
+  ],
+  "support": {
+    "email": "dennmtr+phomxplayer@gmail.com",
+    "homepage": "https://github.com/dennmtr/phomxplayer"
+  },
+  "require": {
+    "php": ">=7.3",
+    "ext-posix": "*"
+  },
+  "minimum-stability": "beta",
+  "autoload": {
+    "psr-4": {
+      "phOMXPlayer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "phOMXPlayer\\Providers\\OMXPlayerServiceProvider"
+      ]
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
 }

@@ -1,4 +1,5 @@
 # dennmtr/phOMXPlayer
+
 ![myImage](https://img.shields.io/github/license/dennmtr/phomxplayer?style=social)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D_7.3-8892BF.svg)](https://github.com/symfony/symfony)
 
@@ -17,6 +18,7 @@ $ git clone https://github.com/dennmtr/phomxplayer.git
 ```
 
 ### Using Composer
+
 The **recommended** way to install phOMXPlayer is through Composer
 
 ```console
@@ -60,8 +62,8 @@ Reserve at least 128MB of system memory to the GPU `required`
 # echo "gpu_mem=128" >> /boot/config.txt
 
 ```
-> **NOTICE**: *Reboot required...*
 
+> **NOTICE**: *Reboot required...*
 
 ## Usage
 
@@ -263,7 +265,8 @@ WithInfo|`with-info`|bool|-|dump stream format before playback|
 
 #### Unit Testing
 
-Don't forget to define a valid absolute file path, or a valid url address for the tests process in phpunit.xml configuration file
+Don't forget to define a valid absolute file path, or a valid url address for the tests process in phpunit.xml
+configuration file
 
 ```xml
 <const name="TEST_URI" value="/file/path/sample.mp4"/>

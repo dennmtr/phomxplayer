@@ -10,69 +10,69 @@ namespace phOMXPlayer\Commands;
 final class PlaybackStatus extends Command
 {
 
-	/**
-	 * @var string Contains the required DBusClient method.
-	 */
-	protected $method = 'org.freedesktop.DBus.Properties.Get';
+  /**
+   * @var string Contains the required DBusClient method.
+   */
+  protected $method = 'org.freedesktop.DBus.Properties.Get';
 
-	/**
-	 * Validates the input value.
-	 *
-	 * @param mixed $input
-	 *
-	 * @return bool
-	 */
-	public static function validateInput($input = null): bool
-	{
+  /**
+   * Validates the input value.
+   *
+   * @param mixed $input
+   *
+   * @return bool
+   */
+  public static function validateInput($input = null): bool
+  {
 
-		if (is_null($input)) return true;
-		return false;
+    if (is_null($input)) return true;
+    return false;
 
-	}
+  }
 
-	/**
-	 * Returns the required DBusClient parameters.
-	 *
-	 * @return array
-	 */
-	protected function getParams(): array
-	{
+  /**
+   * Returns the required DBusClient parameters.
+   *
+   * @return array
+   */
+  protected function getParams(): array
+  {
 
-		return array(
-			array('string', 'org.mpris.MediaPlayer2.Player'),
-			array('string', 'PlaybackStatus'),
-		);
+    return array(
+      array('string', 'org.mpris.MediaPlayer2.Player'),
+      array('string', 'PlaybackStatus'),
+    );
 
-	}
+  }
 
-	/**
-	 * Sanitizes the input value.
-	 *
-	 * @param mixed $input
-	 *
-	 * @return null
-	 */
-	protected function sanitizeInput($input)
-	{
-		return null;
-	}
+  /**
+   * Sanitizes the input value.
+   *
+   * @param mixed $input
+   *
+   * @return null
+   */
+  protected function sanitizeInput($input)
+  {
+    return null;
+  }
 
-	/**
-	 * Formats the stdout string buffer accordingly.
-	 *
-	 * @return bool
-	 */
-	protected function formatOutput(): ?bool
-	{
+  /**
+   * Formats the stdout string buffer accordingly.
+   *
+   * @return bool
+   */
+  protected function formatOutput(): ?bool
+  {
 
-		switch (true) {
-			case preg_match("/Paused/", $this->stdout):
-				return false;
-			case preg_match("/Playing/", $this->stdout):
-				return true;
-		}
-		return null;
+    switch (true) {
+      case preg_match("/Paused/", $this->stdout):
+        return false;
+      case preg_match("/Playing/", $this->stdout):
+        return true;
+    }
+    return null;
 
-	}
+  }
 
 }

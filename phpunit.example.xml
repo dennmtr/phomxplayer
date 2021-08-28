@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	bootstrap="vendor/autoload.php"
-	stopOnFailure="true"
-	colors="true"
-	failOnRisky="true"
-	defaultTestSuite="unit"
-	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-	<php>
-		<!--		Html entity encode (for urls)-->
-		<const name="TEST_URI" value=""/>
-		<env name="APP_ENV" value="testing"/>
-	</php>
-	<testsuites>
-		<!--Draft tests-->
-		<testsuite name="unit">
-			<file>tests/ConfigTest.php</file>
-			<file>tests/ExamplesTest.php</file>
-			<file>tests/DupDBusSessionAvoidedTest.php</file>
-			<file>tests/OMXPlayerTest.php</file>
-			<file>tests/Commands/OpenUriTest.php</file>
-			<file>tests/Commands/CanControlTest.php</file>
-			<file>tests/Commands/CanGoNextTest.php</file>
-			<file>tests/Commands/CanGoPreviousTest.php</file>
-			<file>tests/Commands/CanPauseTest.php</file>
-			<file>tests/Commands/CanPlayTest.php</file>
-			<file>tests/Commands/CanSeekTest.php</file>
-			<file>tests/Commands/PauseTest.php</file>
-			<file>tests/Commands/PlayTest.php</file>
-			<file>tests/Commands/PositionTest.php</file>
-			<file>tests/Commands/RateTest.php</file>
-			<file>tests/Commands/SeekTest.php</file>
-			<file>tests/Commands/PlaybackStatusTest.php</file>
-			<file>tests/Commands/ActionTest.php</file>
-			<file>tests/Commands/DurationTest.php</file>
-			<file>tests/Commands/HideSubtitlesTest.php</file>
-			<file>tests/Commands/ShowSubtitlesTest.php</file>
-			<file>tests/Commands/ListAudioTest.php</file>
-			<file>tests/Commands/ListSubtitlesTest.php</file>
-			<file>tests/Commands/ListVideoTest.php</file>
-			<file>tests/Commands/GetSourceTest.php</file>
-			<file>tests/Commands/VolumeTest.php</file>
-			<file>tests/Commands/SelectAudioTest.php</file>
-			<file>tests/Commands/SelectSubtitleTest.php</file>
-			<file>tests/Commands/ToggleTest.php</file>
-			<file>tests/Commands/PlayTest.php</file>
-			<file>tests/Commands/NextTest.php</file>
-			<file>tests/Commands/PreviousTest.php</file>
-			<file>tests/Commands/StopTest.php</file>
-		</testsuite>
-	</testsuites>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  bootstrap="vendor/autoload.php"
+  stopOnFailure="true"
+  colors="true"
+  failOnRisky="true"
+  defaultTestSuite="unit"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <php>
+    <!--		Html entity encode (for urls)-->
+    <const name="TEST_URI" value=""/>
+    <env name="APP_ENV" value="testing"/>
+  </php>
+  <testsuites>
+    <!--Draft tests-->
+    <testsuite name="unit">
+      <file>tests/ConfigTest.php</file>
+      <file>tests/ExamplesTest.php</file>
+      <file>tests/DupDBusSessionAvoidedTest.php</file>
+      <file>tests/OMXPlayerTest.php</file>
+      <file>tests/Commands/OpenUriTest.php</file>
+      <file>tests/Commands/CanControlTest.php</file>
+      <file>tests/Commands/CanGoNextTest.php</file>
+      <file>tests/Commands/CanGoPreviousTest.php</file>
+      <file>tests/Commands/CanPauseTest.php</file>
+      <file>tests/Commands/CanPlayTest.php</file>
+      <file>tests/Commands/CanSeekTest.php</file>
+      <file>tests/Commands/PauseTest.php</file>
+      <file>tests/Commands/PlayTest.php</file>
+      <file>tests/Commands/PositionTest.php</file>
+      <file>tests/Commands/RateTest.php</file>
+      <file>tests/Commands/SeekTest.php</file>
+      <file>tests/Commands/PlaybackStatusTest.php</file>
+      <file>tests/Commands/ActionTest.php</file>
+      <file>tests/Commands/DurationTest.php</file>
+      <file>tests/Commands/HideSubtitlesTest.php</file>
+      <file>tests/Commands/ShowSubtitlesTest.php</file>
+      <file>tests/Commands/ListAudioTest.php</file>
+      <file>tests/Commands/ListSubtitlesTest.php</file>
+      <file>tests/Commands/ListVideoTest.php</file>
+      <file>tests/Commands/GetSourceTest.php</file>
+      <file>tests/Commands/VolumeTest.php</file>
+      <file>tests/Commands/SelectAudioTest.php</file>
+      <file>tests/Commands/SelectSubtitleTest.php</file>
+      <file>tests/Commands/ToggleTest.php</file>
+      <file>tests/Commands/PlayTest.php</file>
+      <file>tests/Commands/NextTest.php</file>
+      <file>tests/Commands/PreviousTest.php</file>
+      <file>tests/Commands/StopTest.php</file>
+    </testsuite>
+  </testsuites>
 </phpunit>

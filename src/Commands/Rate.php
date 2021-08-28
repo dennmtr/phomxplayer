@@ -14,97 +14,97 @@ use phOMXPlayer\Exception;
 final class Rate extends Command
 {
 
-	/**
-	 * @var string Contains the required DBusClient method.
-	 */
-	protected $method = 'org.freedesktop.DBus.Properties';
+  /**
+   * @var string Contains the required DBusClient method.
+   */
+  protected $method = 'org.freedesktop.DBus.Properties';
 
-	/**
-	 * Returns the required DBusClient parameters.
-	 *
-	 * @return array
-	 */
-	protected function getParams(): ?array
-	{
+  /**
+   * Returns the required DBusClient parameters.
+   *
+   * @return array
+   */
+  protected function getParams(): ?array
+  {
 
-		$params = array(
-			array('string', escapeshellarg('org.mpris.MediaPlayer2.Player')),
-			array('string', escapeshellarg('Rate'))
-		);
-		if (!is_null($this->input)) {
+    $params = array(
+      array('string', escapeshellarg('org.mpris.MediaPlayer2.Player')),
+      array('string', escapeshellarg('Rate'))
+    );
+    if (!is_null($this->input)) {
 
-			$params[] = array('variant:double', $this->input);
+      $params[] = array('variant:double', $this->input);
 
-		}
-		return $params;
+    }
+    return $params;
 
-	}
+  }
 
-	/**
-	 * Sanitizes the input value.
-	 *
-	 * @param mixed $input
-	 *
-	 * @return null
-	 * @throws Exception\CommandException
-	 */
-	protected function sanitizeInput($input)
-	{
+  /**
+   * Sanitizes the input value.
+   *
+   * @param mixed $input
+   *
+   * @return null
+   * @throws Exception\CommandException
+   */
+  protected function sanitizeInput($input)
+  {
 
-		if (is_null($input)) {
+    if (is_null($input)) {
 
-			$this->method .= '.Get';
-			return null;
+      $this->method .= '.Get';
+      return null;
 
-		} else {
+    } else {
 
-			if (static::validateInput($input)) {
+      if (static::validateInput($input)) {
 
-				$this->method .= '.Set';
-				return (float)$input;
+        $this->method .= '.Set';
+        return (float)$input;
 
-			}
-			throw new Exception\CommandException('Invalid input rate number.');
+      }
+      throw new Exception\CommandException('Invalid input rate number.');
 
-		}
+    }
 
-	}
+  }
 
-	/**
-	 * Validates the input value.
-	 *
-	 * @param mixed $input
-	 *
-	 * @return bool
-	 */
-	public static function validateInput($input = null): bool
-	{
+  /**
+   * Validates the input value.
+   *
+   * @param mixed $input
+   *
+   * @return bool
+   */
+  public static function validateInput($input = null): bool
+  {
 
-		if (is_numeric($input) && $input > 0 && $input <= 4) return true;
-		return false;
+    if (is_numeric($input) && $input > 0 && $input <= 4) return true;
+    return false;
 
-	}
+  }
 
-	/**
-	 * Formats the stdout string buffer accordingly.
-	 *
-	 * @return float|null
-	 */
-	protected function formatOutput(): ?float
-	{
+  /**
+   * Formats the stdout string buffer accordingly.
+   *
+   * @return float|null
+   */
+  protected function formatOutput(): ?float
+  {
 
-		preg_match_all('/double\s(.+)/', $this->stdout, $output_array);
-		if (isset($output_array[1][0])) {
+    preg_match_all('/double\s(.+)/', $this->stdout, $output_array);
+    if (isset($output_array[1][0])) {
 
-			if (is_numeric($output_array[1][0])) {
+      if (is_numeric($output_array[1][0])) {
 
-				return (float)$output_array[1][0];
+        return (float)$output_array[1][0];
 
-			}
+      }
 
-		}
-		return null;
+    }
+    return null;
 
-	}
+  }
 
 }
